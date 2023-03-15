@@ -49,18 +49,6 @@ export default class Iphone extends Component {
 		// display all weather data
 		return (
 				<div class={ style.container }>
-					{/* <div class = 'top'>
-                    	<button class = 'Date'>20/2/23</button>
-                    	<button class = 'Location'>Loc</button>
-                    	<button class="Settings">Set</button>
-                	</div>
-                	<div class="mid">
-                    	<p class = {style.header}>Temperature</p>
-                	</div>
-                	<div class="bot">
-                    	<button class = 'mic'>mic</button>
-                    	<button class ='speak'>speak</button>
-                	</div> */}
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
 						{/* <div><img src="http://openweathermap.org/img/wn/${
