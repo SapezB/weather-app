@@ -8,6 +8,7 @@ import $ from 'jquery';
 // import the Button component
 import Button from '../button';
 
+var category
 export default class Iphone extends Component {
 //var Iphone = React.createClass({
 
@@ -43,10 +44,9 @@ export default class Iphone extends Component {
 	render() {
 		// check if temperature data is fetched, if so add the sign styling to the page
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
-		var main = parsed_json['weather']['0']['main']
-		console.log(main)
+		console.log(category)
 		// display all weather data
-		if(main=="Rain"){
+		if(category=="Rain"){
 			return (
 				<div class={ style.container-rainy }>
 					<div class={ style.header }>
@@ -64,7 +64,7 @@ export default class Iphone extends Component {
 				</div>
 			);
 		}
-		else if(main=="Clear"){
+		else if(category=="Clear"){
 			return (
 				<div class={ style.container-sunny }>
 					<div class={ style.header }>
@@ -110,6 +110,7 @@ export default class Iphone extends Component {
 		var conditions = parsed_json['weather']['0']['description'];
 		var icon = parsed_json['weather']['0']['icon'];
 		var main = parsed_json['weather']['0']['main']
+		category=main;
 
 		// set states for fields so they could be rendered later on
 		this.setState({
