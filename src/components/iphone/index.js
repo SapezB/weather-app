@@ -43,11 +43,10 @@ export default class Iphone extends Component {
 	render() {
 		// check if temperature data is fetched, if so add the sign styling to the page
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
-		let containerStyle={ 
-
-		};
+		let category = this.state.main;
+		console.log(category)
 		// display all weather data
-		if(this.state.main==="Rain"){
+		if(category=="Rain"){
 			return (
 				<div class={ style.container-rainy }>
 					<div class={ style.header }>
@@ -63,10 +62,9 @@ export default class Iphone extends Component {
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
 			 		</div>
 				</div>
-			
 			);
 		}
-		else if(this.state.main==="Clear"){
+		else if(category=="Clear"){
 			return (
 				<div class={ style.container-sunny }>
 					<div class={ style.header }>
@@ -82,7 +80,6 @@ export default class Iphone extends Component {
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
 			 		</div>
 				</div>
-			
 			);
 		}
 		else{
