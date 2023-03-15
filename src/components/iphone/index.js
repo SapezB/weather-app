@@ -8,7 +8,8 @@ import $ from 'jquery';
 // import the Button component
 import Button from '../button';
 import HomeScreen from '../homeScreen';
-import darkBlue from "/Users/bensapezinskas/Documents/GitHub/weather-app/src/assets/backgrounds/darkblue.jpg"
+import darkBlue from "/Users/bensapezinskas/Documents/GitHub/weather-app/src/assets/backgrounds/darkblue.jpg";
+import skyBlue from "/Users/bensapezinskas/Documents/GitHub/weather-app/src/assets/backgrounds/skyblue.jpg"
 
 
 export default class Iphone extends Component {
@@ -21,7 +22,8 @@ export default class Iphone extends Component {
 		this.state.temp = "";
 		// button display state
 		this.setState({ display: true });
-		this.state.weather = 'Sunny'
+		this.state = { weather : 'Cloudy'}
+		this.image = darkBlue
 	}
 
 	// a call to fetch weather data via wunderground
@@ -41,10 +43,10 @@ export default class Iphone extends Component {
 	checkBackground = () =>{
 		console.log(this.state.weather)
 		if (this.state.weather == 'Cloudy'){
-			return 'style.containerCloudy'
+			this.image = darkBlue
 		}
 		else if(this.state.weather == 'Sunny'){
-			return 'style.containerSunny'
+			this.image = skyBlue
 		}
 	}
 
@@ -52,12 +54,19 @@ export default class Iphone extends Component {
 	render() {
 		// check if temperature data is fetched, if so add the sign styling to the page
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
+		
+		//sets image variable to be the bakcgbround of the current state
+		if (this.state.weather == 'Cloudy'){
+			this.image = darkBlue
+		}
+		else if(this.state.weather == 'Sunny'){
+			this.image = skyBlue
+		}
 
-		const weatherStyle = this.checkBackground
 
-		// display all weather data
+		// display all weather dataz
 		return (
-			<div class = {style.container}>
+			<div class = {style.container} style={{ backgroundImage:`url(${this.image})` }}>
 				<HomeScreen/>
 			</div>
 			
