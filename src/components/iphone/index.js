@@ -57,7 +57,10 @@ export default class Iphone extends Component {
                 </div> */}
 				<div class={ style.header }>
 			 		<div class={ style.city }>{ this.state.locate }</div>
-					<div>{this.state.icon}</div>
+					<div><img src="http://openweathermap.org/img/wn/${
+						this.state.icon
+					}@4x.png"/></div>
+					<div>{this.state.main}</div>
 			 		<div class={ style.conditions }>{ this.state.cond }</div>
 			 		<span class={ tempStyles }>{ this.state.temp }</span>
 			 	</div>
@@ -75,13 +78,15 @@ export default class Iphone extends Component {
 		var temp_c = parsed_json['main']['temp'];
 		var conditions = parsed_json['weather']['0']['description'];
 		var icon = parsed_json['weather']['0']['icon'];
+		var main = parsed_json['weather']['0']['main']
 
 		// set states for fields so they could be rendered later on
 		this.setState({
 			locate: location,
 			temp: temp_c,
 			cond : conditions,
-			icon: icon
+			icon: icon,
+			main: main
 		});      
 	}
 }
