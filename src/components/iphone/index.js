@@ -35,6 +35,10 @@ export default class Iphone extends Component {
 		this.setState({ display: false });
 	}
 
+	
+	
+	
+
 	// the main render method for the iphone component
 	render() {
 		// check if temperature data is fetched, if so add the sign styling to the page
@@ -42,36 +46,35 @@ export default class Iphone extends Component {
 		
 		// display all weather data
 		return (
-			<div class={ style.container }>
-				{/* <div class = 'top'>
-                    <button class = 'Date'>20/2/23</button>
-                    <button class = 'Location'>Loc</button>
-                    <button class="Settings">Set</button>
-                </div>
-                <div class="mid">
-                    <p class = {style.header}>Temperature</p>
-                </div>
-                <div class="bot">
-                    <button class = 'mic'>mic</button>
-                    <button class ='speak'>speak</button>
-                </div> */}
-				<div class={ style.header }>
-			 		<div class={ style.city }>{ this.state.locate }</div>
-					<div><img src="http://openweathermap.org/img/wn/${
-						this.state.icon
-					}@4x.png"/></div>
-					<div>{this.state.main}</div>
-			 		<div class={ style.conditions }>{ this.state.cond }</div>
-			 		<span class={ tempStyles }>{ this.state.temp }</span>
-			 	</div>
-			 	<div class={ style.details }></div>
-			 	<div class= { style_iphone.container }> 
-			 		{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
-			 	</div>
-			</div>
+				<div class={ style.container }>
+					{/* <div class = 'top'>
+                    	<button class = 'Date'>20/2/23</button>
+                    	<button class = 'Location'>Loc</button>
+                    	<button class="Settings">Set</button>
+                	</div>
+                	<div class="mid">
+                    	<p class = {style.header}>Temperature</p>
+                	</div>
+                	<div class="bot">
+                    	<button class = 'mic'>mic</button>
+                    	<button class ='speak'>speak</button>
+                	</div> */}
+					<div class={ style.header }>
+			 			<div class={ style.city }>{ this.state.locate }</div>
+						{/* <div><img src="http://openweathermap.org/img/wn/${
+							this.state.icon
+						}@4x.png"/></div> */}
+			 			<div class={ style.conditions }>{ this.state.cond }</div>
+			 			<span class={ tempStyles }>{ this.state.temp }</span>
+			 		</div>
+			 		<div class={ style.details }></div>
+			 		<div class= { style_iphone.container }> 
+			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
+			 		</div>
+				</div>
 			
 		);
-	}
+	};
 
 	parseResponse = (parsed_json) => {
 		var location = parsed_json['name'];
