@@ -8,6 +8,10 @@ import $ from 'jquery';
 // import the Button component
 import Button from '../button';
 
+import HomeScreen from '../homeScreen';
+
+
+
 export default class Iphone extends Component {
 //var Iphone = React.createClass({
 
@@ -34,39 +38,24 @@ export default class Iphone extends Component {
 		this.setState({ display: false });
 	}
 
+	OnClickSettings = () => {
+		// this.props.navigation.navigate('settingsScreen')
+		console.log('Working')
+	}
+
 	// the main render method for the iphone component
 	render() {
 		// check if temperature data is fetched, if so add the sign styling to the page
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
 		
-		// display all weather data
 		return (
-			<div class={ style.container }>
-				<div class = 'top'>
-                    <button class = 'Date'>20/2/23</button>
-                    <button class = 'Location'>Loc</button>
-                    <button class="Settings">Set</button>
-                </div>
-                <div class="mid">
-                    <p class = {style.header}>Temperature</p>
-                </div>
-                <div class="bot">
-                    <button class = 'mic'>mic</button>
-                    <button class ='speak'>speak</button>
-                </div>
+			<div class = {style.container}>
+				<HomeScreen/>
 			</div>
-			// 	<div class={ style.header }>
-			// 		<div class={ style.city }>{ this.state.locate }</div>
-			// 		<div class={ style.conditions }>{ this.state.cond }</div>
-			// 		<span class={ tempStyles }>{ this.state.temp }</span>
-			// 	</div>
-			// 	<div class={ style.details }></div>
-			// 	<div class= { style_iphone.container }> 
-			// 		{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
-			// 	</div>
-			// </div>
+		
 		);
 	}
+
 
 	parseResponse = (parsed_json) => {
 		var location = parsed_json['name'];
