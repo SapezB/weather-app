@@ -48,7 +48,7 @@ export default class Iphone extends Component {
 		// display all weather data
 		if(category=="Rain"){
 			return (
-				<div class={ style.container-rainy }>
+				<div class={ style.containerrainy }>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
 						{/* <div><img src="http://openweathermap.org/img/wn/${
@@ -66,7 +66,7 @@ export default class Iphone extends Component {
 		}
 		else if(category=="Clear"){
 			return (
-				<div class={ style.container-sunny }>
+				<div class={ style.containersunny }>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
 						{/* <div><img src="http://openweathermap.org/img/wn/${
@@ -84,7 +84,7 @@ export default class Iphone extends Component {
 		}
 		else{
 			return (
-				<div class={ style.container-cloudy }>
+				<div class={ style.containercloudy }>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
 						{/* <div><img src="http://openweathermap.org/img/wn/${
