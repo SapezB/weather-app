@@ -47,8 +47,9 @@ export default class Iphone extends Component {
 
 		};
 		// display all weather data
-		return (
-				<div class={ style.container }>
+		if(this.state.main==="Rain"){
+			return (
+				<div class={ style.container-rainy }>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
 						{/* <div><img src="http://openweathermap.org/img/wn/${
@@ -63,7 +64,47 @@ export default class Iphone extends Component {
 			 		</div>
 				</div>
 			
-		);
+			);
+		}
+		else if(this.state.main==="Clear"){
+			return (
+				<div class={ style.container-sunny }>
+					<div class={ style.header }>
+			 			<div class={ style.city }>{ this.state.locate }</div>
+						{/* <div><img src="http://openweathermap.org/img/wn/${
+							this.state.icon
+						}@4x.png"/></div> */}
+			 			<div class={ style.conditions }>{ this.state.cond }</div>
+			 			<span class={ tempStyles }>{ this.state.temp }</span>
+			 		</div>
+			 		<div class={ style.details }></div>
+			 		<div class= { style_iphone.container }> 
+			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
+			 		</div>
+				</div>
+			
+			);
+		}
+		else{
+			return (
+				<div class={ style.container-cloudy }>
+					<div class={ style.header }>
+			 			<div class={ style.city }>{ this.state.locate }</div>
+						{/* <div><img src="http://openweathermap.org/img/wn/${
+							this.state.icon
+						}@4x.png"/></div> */}
+			 			<div class={ style.conditions }>{ this.state.cond }</div>
+			 			<span class={ tempStyles }>{ this.state.temp }</span>
+			 		</div>
+			 		<div class={ style.details }></div>
+			 		<div class= { style_iphone.container }> 
+			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
+			 		</div>
+				</div>
+			
+			);
+		}
+		
 	};
 
 	parseResponse = (parsed_json) => {
