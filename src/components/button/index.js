@@ -14,7 +14,7 @@ export default class Button extends Component {
 		return (
 			<div>
 				<button onClick={cFunction}>
-					Hello
+					{this.props.class}
 				</button>
 			</div>
 		);
