@@ -7,9 +7,8 @@ import style_iphone from '../button/style_iphone';
 import $ from 'jquery';
 // import the Button component
 import Button from '../button';
-
 import HomeScreen from '../homeScreen';
-
+import darkBlue from "/Users/bensapezinskas/Documents/GitHub/weather-app/src/assets/backgrounds/darkblue.jpg"
 
 
 export default class Iphone extends Component {
@@ -22,6 +21,7 @@ export default class Iphone extends Component {
 		this.state.temp = "";
 		// button display state
 		this.setState({ display: true });
+		this.state.weather = 'Sunny'
 	}
 
 	// a call to fetch weather data via wunderground
@@ -38,24 +38,31 @@ export default class Iphone extends Component {
 		this.setState({ display: false });
 	}
 
-	OnClickSettings = () => {
-		// this.props.navigation.navigate('settingsScreen')
-		console.log('Working')
+	checkBackground = () =>{
+		console.log(this.state.weather)
+		if (this.state.weather == 'Cloudy'){
+			return 'style.containerCloudy'
+		}
+		else if(this.state.weather == 'Sunny'){
+			return 'style.containerSunny'
+		}
 	}
 
 	// the main render method for the iphone component
 	render() {
 		// check if temperature data is fetched, if so add the sign styling to the page
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
-		
+
+		const weatherStyle = this.checkBackground
+
+		// display all weather data
 		return (
 			<div class = {style.container}>
 				<HomeScreen/>
 			</div>
-		
+			
 		);
 	}
-
 
 	parseResponse = (parsed_json) => {
 		var location = parsed_json['name'];

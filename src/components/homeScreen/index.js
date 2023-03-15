@@ -11,6 +11,7 @@ export default class homeScreen extends Component{
 		super(props);
 		this.state = {
 			screen: 'Home'
+
 		};
 	}
 
