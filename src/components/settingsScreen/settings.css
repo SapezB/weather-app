@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body{
+    font-family: 'montseratt', sans-serif;
+  }
+  
+  .settingsApp{
+    background-image: url('../../assets/backgrounds/sky.jpg');
+    background-size: cover;
+    background-position: bottom;
+    transition: 0.4 ease-in;
+  }
+  
+  main{
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0),rbga(0,0,0,0.75));
+    padding: 25px;
+  }
+  
+  .search-box{
+    width:100%;
+    
+  }
+  
+  .search-box .search-bar{
+    display: block;
+    width: 100%;
+    padding: 15px;
+  
+    appearance: none;
+    background:  none;
+    border: none;
+    outline:  none;
+    color: black;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 0px 0px 16px 16px;
+  
+  }
+  
+  div h1{
+    text-align: center;
+    color: #fffdfd;
+    font-size: 50px;
+    padding-top: 30px;
+  }
+  
+  .settingsContainer{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    column-gap:  30px;
+    margin-left: 0%;
+    margin-right: 0%;
+  
+  }
+  
+  .settingsImage img{
+    width: 100px;
+    height: 100px;
+  }
+  
+  .settings{
+    top: 50%;
+    left: 50%;
+    position:absolute;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+  }
+  
+  
+  
+  .settingsBtn {
+    -webkit-border-radius: 44;
+    -moz-border-radius: 44;
+    border-radius: 44px;
+    -webkit-box-shadow: 0px 6px 20px #666666;
+    -moz-box-shadow: 0px 6px 20px #666666;
+    box-shadow: 0px 6px 20px #666666;
+    font-family: 'montseratt', sans-serif;
+    color: #000000;
+    background: #f5f5f5;
+    padding: 10px 40px 10px 40px;
+    text-decoration: none;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 16px;
+    align-items: center;
+  }
+  
+  .btn:hover {
+    text-decoration: none;
+  }
