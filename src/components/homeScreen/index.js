@@ -13,6 +13,9 @@ export default class homeScreen extends Component{
 			screen: 'Home'
 		};
 	}
+    printLoc() {
+        console.log(this.state.value);
+     }
 
     switchToSet = () =>{
         this.setState({ screen : 'Set' })
@@ -41,6 +44,9 @@ export default class homeScreen extends Component{
                         <div class="bot">
                             <button class = 'mic'>mic</button>
                             <button class ='speak'>speak</button>
+                        </div>
+                        <div>
+                            <p>{this.state.value}</p>
                         </div>
                     </div>
             );
