@@ -52,7 +52,7 @@ export default class Iphone extends Component {
                 </div>
                 <div class="bot">
                     <button class = 'mic'>mic</button>
-                    <button class ='s'>speak</button>
+                    <button class ='speak'>s</button>
                 </div>
 			</div>
 			// 	<div class={ style.header }>
