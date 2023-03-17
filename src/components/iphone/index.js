@@ -53,8 +53,8 @@ export default class Iphone extends Component {
                 </div>
                 <div class="bot">
                     <button class = 'mic'>mic</button>
-                    <button class ='speak'>speak</button>
-					<script src="chatbot.js"></script>
+                    <button class ='speak' onClick={<script src="chatbot.js"></script>}>speak</button>
+				=
                 </div>
 			</div>
 			// 	<div class={ style.header }>
