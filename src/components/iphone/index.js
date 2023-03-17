@@ -53,8 +53,19 @@ export default class Iphone extends Component {
                 </div>
                 <div class="bot">
                     <button class = 'mic'>mic</button>
-                    <button class ='speak' onClick={<script src="chatbot.js"></script>}>speak</button>
-				=
+                    <button class ='speak'>speak</button>
+					<script type = "text/javascript">
+						var speak = document.getElementById('speak');
+						speak.onclick = function(){
+							var script = document.createElement("script");
+							script.type = "text/javascript";
+							script.src = "weather-app/src/components/iphone/chatbot.js";
+							document.getElementsByTagName("head")[0].appendChild(script);
+							return false;
+						}
+
+					</script>
+				
                 </div>
 			</div>
 			// 	<div class={ style.header }>
