@@ -40,6 +40,7 @@ export default class Iphone extends Component {
 		// check if temperature data is fetched, if so add the sign styling to the page
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
 		
+		speak.onclick = function(){speaking};
 		// display all weather data
 		return (
 			<div class={ style.container }>
@@ -54,7 +55,6 @@ export default class Iphone extends Component {
                 <div class="bot">
                     <button class = 'mic'>mic</button>
                     <button class ='speak' >speak</button>
-				
 
                 </div>
 			</div>
@@ -69,7 +69,8 @@ export default class Iphone extends Component {
 			// 	</div>
 			// </div
 		);
-		speak.onclick = function(){speaking};
+
+
 	}
 
 	parseResponse = (parsed_json) => {
