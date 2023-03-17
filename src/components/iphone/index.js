@@ -40,7 +40,7 @@ export default class Iphone extends Component {
 		// check if temperature data is fetched, if so add the sign styling to the page
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
 
-		speak.onclick = speaking();
+		speak.onclick = function(){speaking};
 		// display all weather data
 		return (
 			<div class={ style.container }>
@@ -132,7 +132,7 @@ export default class Iphone extends Component {
 				recognition.stop();
 				utter.text = "I dont know that command yet";
 				synth.speak(utter);
-			}
+			};
 		};
 	}
 
