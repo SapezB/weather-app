@@ -7,10 +7,7 @@ import style_iphone from '../button/style_iphone';
 import $ from 'jquery';
 // import the Button component
 import Button from '../button';
-import HomeScreen from '../homeScreen';
-import darkBlue from "/Users/bensapezinskas/Documents/GitHub/weather-app/src/assets/backgrounds/darkblue.jpg";
-import skyBlue from "/Users/bensapezinskas/Documents/GitHub/weather-app/src/assets/backgrounds/skyblue.jpg"
-
+import HomeScreen from '../homeScreen'
 
 var category
 export default class Iphone extends Component {
@@ -23,8 +20,6 @@ export default class Iphone extends Component {
 		this.state.temp = "";
 		// button display state
 		this.setState({ display: true });
-		this.state = { weather : 'Cloudy'}
-		this.image = darkBlue
 	}
 
 	// a call to fetch weather data via wunderground
@@ -42,106 +37,40 @@ export default class Iphone extends Component {
 		this.setState({ display: false });
 	}
 
-<<<<<<< HEAD
 	
 	
 	
-=======
-	checkBackground = () =>{
-		console.log(this.state.weather)
-		if (this.state.weather == 'Cloudy'){
-			this.image = darkBlue
-		}
-		else if(this.state.weather == 'Sunny'){
-			this.image = skyBlue
-		}
-	}
->>>>>>> Ben
 
 	// the main render method for the iphone component
 	render() {
 		// check if temperature data is fetched, if so add the sign styling to the page
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
-<<<<<<< HEAD
 		console.log(category)
 		// display all weather data
 		if(category=="Rain"){
 			return (
 				<div class={ style.containerrainy }>
-					<div class={ style.header }>
-			 			<div class={ style.city }>{ this.state.locate }</div>
-						{/* <div><img src="http://openweathermap.org/img/wn/${
-							this.state.icon
-						}@4x.png"/></div> */}
-			 			<div class={ style.conditions }>{ this.state.cond }</div>
-			 			<span class={ tempStyles }>{ this.state.temp }</span>
-			 		</div>
-			 		<div class={ style.details }></div>
-			 		<div class= { style_iphone.container }> 
-			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
-			 		</div>
+					<HomeScreen/>
 				</div>
 			);
 		}
 		else if(category=="Clear"){
 			return (
 				<div class={ style.containersunny }>
-					<div class={ style.header }>
-			 			<div class={ style.city }>{ this.state.locate }</div>
-						{/* <div><img src="http://openweathermap.org/img/wn/${
-							this.state.icon
-						}@4x.png"/></div> */}
-			 			<div class={ style.conditions }>{ this.state.cond }</div>
-			 			<span class={ tempStyles }>{ this.state.temp }</span>
-			 		</div>
-			 		<div class={ style.details }></div>
-			 		<div class= { style_iphone.container }> 
-			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
-			 		</div>
+					<HomeScreen/>
 				</div>
 			);
 		}
 		else{
 			return (
 				<div class={ style.containercloudy }>
-					<div class={ style.header }>
-			 			<div class={ style.city }>{ this.state.locate }</div>
-						{/* <div><img src="http://openweathermap.org/img/wn/${
-							this.state.icon
-						}@4x.png"/></div> */}
-			 			<div class={ style.conditions }>{ this.state.cond }</div>
-			 			<span class={ tempStyles }>{ this.state.temp }</span>
-			 		</div>
-			 		<div class={ style.details }></div>
-			 		<div class= { style_iphone.container }> 
-			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
-			 		</div>
+					<HomeScreen/>
 				</div>
 			
 			);
 		}
 		
 	};
-=======
-		
-		//sets image variable to be the bakcgbround of the current state
-		if (this.state.weather == 'Cloudy'){
-			this.image = darkBlue
-		}
-		else if(this.state.weather == 'Sunny'){
-			this.image = skyBlue
-		}
-
-
-		// display all weather dataz
-		return (
-			<div class = {style.container} style={{ backgroundImage:`url(${this.image})` }}>
-				<HomeScreen/>
-			</div>
-			
-		);
-	}
->>>>>>> Ben
 
 	parseResponse = (parsed_json) => {
 		var location = parsed_json['name'];
