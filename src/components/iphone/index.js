@@ -9,18 +9,11 @@ import $ from 'jquery';
 import Button from '../button';
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 import HomeScreen from '../homeScreen'
 >>>>>>> 2d0fd3005b786937e8f0b6ad341ba6bdcc3dd4c6
 =======
 >>>>>>> parent of b1ce41b (Merge branch 'Ben' into Milena)
-=======
-import HomeScreen from '../homeScreen';
-import darkBlue from "/Users/bensapezinskas/Documents/GitHub/weather-app/src/assets/backgrounds/darkblue.jpg";
-import skyBlue from "/Users/bensapezinskas/Documents/GitHub/weather-app/src/assets/backgrounds/skyblue.jpg"
-
->>>>>>> parent of 14b6d5a (Update index.js)
 
 var category
 export default class Iphone extends Component {
@@ -33,8 +26,6 @@ export default class Iphone extends Component {
 		this.state.temp = "";
 		// button display state
 		this.setState({ display: true });
-		this.state = { weather : 'Cloudy'}
-		this.image = darkBlue
 	}
 
 	// a call to fetch weather data via wunderground
@@ -52,27 +43,14 @@ export default class Iphone extends Component {
 		this.setState({ display: false });
 	}
 
-<<<<<<< HEAD
 	
 	
 	
-=======
-	checkBackground = () =>{
-		console.log(this.state.weather)
-		if (this.state.weather == 'Cloudy'){
-			this.image = darkBlue
-		}
-		else if(this.state.weather == 'Sunny'){
-			this.image = skyBlue
-		}
-	}
->>>>>>> Ben
 
 	// the main render method for the iphone component
 	render() {
 		// check if temperature data is fetched, if so add the sign styling to the page
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
-<<<<<<< HEAD
 		console.log(category)
 		// display all weather data
 		if(category=="Rain"){
@@ -99,26 +77,6 @@ export default class Iphone extends Component {
 		}
 		
 	};
-=======
-		
-		//sets image variable to be the bakcgbround of the current state
-		if (this.state.weather == 'Cloudy'){
-			this.image = darkBlue
-		}
-		else if(this.state.weather == 'Sunny'){
-			this.image = skyBlue
-		}
-
-
-		// display all weather dataz
-		return (
-			<div class = {style.container} style={{ backgroundImage:`url(${this.image})` }}>
-				<HomeScreen/>
-			</div>
-			
-		);
-	}
->>>>>>> Ben
 
 	parseResponse = (parsed_json) => {
 		var location = parsed_json['name'];
