@@ -53,7 +53,8 @@ export default class Iphone extends Component {
                 </div>
                 <div class="bot">
                     <button class = 'mic'>mic</button>
-                    <button class ='speak' onclick = "speaking()">speak</button>
+                    <button class ='speak' >speak</button>
+					speak.onclick = speaking();
 				
 					
 
@@ -86,7 +87,7 @@ export default class Iphone extends Component {
 		});      
 	}
 	speaking(){
-	
+		const startBtn = document.querySelector("#speak");
 		const recognition = new webkitSpeechRecognition();
 		recognition.continuous = true;
 		recognition.lang = "en-US";
@@ -96,7 +97,7 @@ export default class Iphone extends Component {
 		const synth = window.speechSynthesis;
 
 
-		speak.addEventListener("click", () =>{
+		startBtn.addEventListener("click", () =>{
 			recognition.start();
 			utter.text = "Hello. i am your chatbot for today.... some basic questions you can ask are: what is the weather like today?";
 			synth.speak(utter);
@@ -121,9 +122,16 @@ export default class Iphone extends Component {
 				utter.text = "the weather today is relatively sunny - highest of 20 degrees";
 				synth.speak(utter);
 			};
+
 			else if (transcript ==="goodbye"){
 				recognition.stop();
 				utter.text = "goodbye. see you soon";
+				synth.speak(utter);
+			};
+
+			else {
+				recognition.stop();
+				utter.text = "I dont know that command yet";
 				synth.speak(utter);
 			};
 		};
