@@ -40,7 +40,7 @@ export default class Iphone extends Component {
 		// check if temperature data is fetched, if so add the sign styling to the page
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
 
-		speak.onclick = function(){speaking};
+		document.getElementById("speak").onclick =function(){speaking()};
 		// display all weather data
 		return (
 			<div class={ style.container }>
@@ -85,8 +85,8 @@ export default class Iphone extends Component {
 			cond : conditions
 		});      
 	}
+
 	speaking(){
-		const startBtn = document.getElementById("speak");
 		const recognition = new webkitSpeechRecognition();
 		recognition.continuous = true;
 		recognition.lang = "en-US";
@@ -95,12 +95,10 @@ export default class Iphone extends Component {
 
 		const synth = window.speechSynthesis;
 
-
-		startBtn.addEventListener("click", () =>{
+		speak.addEventListener("click", () =>{
 			recognition.start();
 			utter.text = "Hello. i am your chatbot for today.... some basic questions you can ask are: what is the weather like today?";
-			synth.speak(utter);
-			
+			synth.speak(utter);	
 		});
 
 		let utter = new SpeechSynthesisUtterance("Hi");
@@ -114,19 +112,19 @@ export default class Iphone extends Component {
 				recognition.stop();
 				utter.text = "Hello";
 				synth.speak(utter);
-			}
+			};
 
-			else if (transcript ==="what is the weather like today"){
+			if (transcript ==="what is the weather like today"){
 				recognition.stop();
 				utter.text = "the weather today is relatively sunny - highest of 20 degrees";
 				synth.speak(utter);
-			}
+			};
 
-			else if (transcript ==="goodbye"){
+			if (transcript ==="goodbye"){
 				recognition.stop();
 				utter.text = "goodbye. see you soon";
 				synth.speak(utter);
-			}
+			};
 
 			else {
 				recognition.stop();
