@@ -20,8 +20,8 @@ export default class Iphone extends Component {
 		this.state.temp = "";
 		// button display state
 		this.setState({ display: true });
-		this.state = { weather : 'Cloudy'}
-		this.image = darkBlue
+		// this.state = { weather : 'Cloudy'}
+		// this.image = darkBlue
 	}
 
 	// a call to fetch weather data via wunderground
@@ -42,15 +42,15 @@ export default class Iphone extends Component {
 	
 	
 	
-	checkBackground = () =>{
-		console.log(this.state.weather)
-		if (this.state.weather == 'Cloudy'){
-			this.image = darkBlue
-		}
-		else if(this.state.weather == 'Sunny'){
-			this.image = skyBlue
-		}
-	}
+	// checkBackground = () =>{
+	// 	console.log(this.state.weather)
+	// 	if (this.state.weather == 'Cloudy'){
+	// 		this.image = darkBlue
+	// 	}
+	// 	else if(this.state.weather == 'Sunny'){
+	// 		this.image = skyBlue
+	// 	}
+	// }
 
 	// the main render method for the iphone component
 	render() {
