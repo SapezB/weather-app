@@ -54,10 +54,7 @@ export default class Iphone extends Component {
                 <div class="bot">
                     <button class = 'mic'>mic</button>
                     <button class ='speak' >speak</button>
-					speak.onclick = function(){speaking};
 				
-					
-
 
                 </div>
 			</div>
@@ -70,8 +67,9 @@ export default class Iphone extends Component {
 			// 	<div class= { style_iphone.container }> 
 			// 		{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
 			// 	</div>
-			// </div>
+			// </div
 		);
+		speak.onclick = function(){speaking};
 	}
 
 	parseResponse = (parsed_json) => {
@@ -136,5 +134,6 @@ export default class Iphone extends Component {
 			};
 		};
 	}
+
 
 }
