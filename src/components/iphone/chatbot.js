@@ -1,4 +1,4 @@
-const startBtn = document.querySelector("#start-btn");
+const startBtn = document.querySelector("#speak");
 
 
 const recognition = new webkitSpeechRecognition();
