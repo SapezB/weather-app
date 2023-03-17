@@ -7,13 +7,7 @@ import style_iphone from '../button/style_iphone';
 import $ from 'jquery';
 // import the Button component
 import Button from '../button';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 import HomeScreen from '../homeScreen'
->>>>>>> 2d0fd3005b786937e8f0b6ad341ba6bdcc3dd4c6
-=======
->>>>>>> parent of b1ce41b (Merge branch 'Ben' into Milena)
 
 var category
 export default class Iphone extends Component {
@@ -26,6 +20,8 @@ export default class Iphone extends Component {
 		this.state.temp = "";
 		// button display state
 		this.setState({ display: true });
+		this.state = { weather : 'Cloudy'}
+		this.image = darkBlue
 	}
 
 	// a call to fetch weather data via wunderground
@@ -46,6 +42,15 @@ export default class Iphone extends Component {
 	
 	
 	
+	checkBackground = () =>{
+		console.log(this.state.weather)
+		if (this.state.weather == 'Cloudy'){
+			this.image = darkBlue
+		}
+		else if(this.state.weather == 'Sunny'){
+			this.image = skyBlue
+		}
+	}
 
 	// the main render method for the iphone component
 	render() {
@@ -56,27 +61,78 @@ export default class Iphone extends Component {
 		if(category=="Rain"){
 			return (
 				<div class={ style.containerrainy }>
-					<HomeScreen/>
+					<div class={ style.header }>
+			 			<div class={ style.city }>{ this.state.locate }</div>
+						{/* <div><img src="http://openweathermap.org/img/wn/${
+							this.state.icon
+						}@4x.png"/></div> */}
+			 			<div class={ style.conditions }>{ this.state.cond }</div>
+			 			<span class={ tempStyles }>{ this.state.temp }</span>
+			 		</div>
+			 		<div class={ style.details }></div>
+			 		<div class= { style_iphone.container }> 
+			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
+			 		</div>
 				</div>
 			);
 		}
 		else if(category=="Clear"){
 			return (
 				<div class={ style.containersunny }>
-					<HomeScreen/>
+					<div class={ style.header }>
+			 			<div class={ style.city }>{ this.state.locate }</div>
+						{/* <div><img src="http://openweathermap.org/img/wn/${
+							this.state.icon
+						}@4x.png"/></div> */}
+			 			<div class={ style.conditions }>{ this.state.cond }</div>
+			 			<span class={ tempStyles }>{ this.state.temp }</span>
+			 		</div>
+			 		<div class={ style.details }></div>
+			 		<div class= { style_iphone.container }> 
+			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
+			 		</div>
 				</div>
 			);
 		}
 		else{
 			return (
 				<div class={ style.containercloudy }>
-					<HomeScreen/>
+					<div class={ style.header }>
+			 			<div class={ style.city }>{ this.state.locate }</div>
+						{/* <div><img src="http://openweathermap.org/img/wn/${
+							this.state.icon
+						}@4x.png"/></div> */}
+			 			<div class={ style.conditions }>{ this.state.cond }</div>
+			 			<span class={ tempStyles }>{ this.state.temp }</span>
+			 		</div>
+			 		<div class={ style.details }></div>
+			 		<div class= { style_iphone.container }> 
+			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
+			 		</div>
 				</div>
 			
 			);
 		}
 		
 	};
+		
+		//sets image variable to be the bakcgbround of the current state
+		if (this.state.weather == 'Cloudy'){
+			this.image = darkBlue
+		}
+		else if(this.state.weather == 'Sunny'){
+			this.image = skyBlue
+		}
+
+
+		// display all weather dataz
+		return (
+			<div class = {style.container} style={{ backgroundImage:`url(${this.image})` }}>
+				<HomeScreen/>
+			</div>
+			
+		);
+	}
 
 	parseResponse = (parsed_json) => {
 		var location = parsed_json['name'];
