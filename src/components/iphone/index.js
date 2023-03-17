@@ -132,7 +132,7 @@ export default class Iphone extends Component {
 		// 	</div>
 			
 		// );
-	}
+	// }
 
 	parseResponse = (parsed_json) => {
 		var location = parsed_json['name'];
@@ -154,4 +154,4 @@ export default class Iphone extends Component {
 			//if main=== Rain -> rainy.png
 		});      
 	}
-
+}
