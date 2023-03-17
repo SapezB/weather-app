@@ -8,6 +8,7 @@ import $ from 'jquery';
 // import the Button component
 import Button from '../button';
 
+
 export default class Iphone extends Component {
 //var Iphone = React.createClass({
 
@@ -52,7 +53,8 @@ export default class Iphone extends Component {
                 </div>
                 <div class="bot">
                     <button class = 'mic'>mic</button>
-                    <button class ='speak'>s</button>
+                    <button class ='speak'>speak</button>
+						<script src="chatbot.js"></script>
                 </div>
 			</div>
 			// 	<div class={ style.header }>
