@@ -54,7 +54,7 @@ export default class Iphone extends Component {
                 <div class="bot">
                     <button class = 'mic'>mic</button>
                     <button class ='speak' >speak</button>
-					speak.onclick = speaking();
+					speak.onclick = function(){speaking};
 				
 					
 
@@ -87,7 +87,7 @@ export default class Iphone extends Component {
 		});      
 	}
 	speaking(){
-		const startBtn = document.querySelector("#speak");
+		const startBtn = document.getElementById("speak");
 		const recognition = new webkitSpeechRecognition();
 		recognition.continuous = true;
 		recognition.lang = "en-US";
