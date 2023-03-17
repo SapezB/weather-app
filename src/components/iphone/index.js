@@ -85,7 +85,7 @@ export default class Iphone extends Component {
 			cond : conditions
 		});      
 	}
-	function speaking(){
+	speaking(){
 	
 		const recognition = new webkitSpeechRecognition();
 		recognition.continuous = true;
