@@ -8,9 +8,12 @@ import $ from 'jquery';
 // import the Button component
 import Button from '../button';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import HomeScreen from '../homeScreen'
 >>>>>>> 2d0fd3005b786937e8f0b6ad341ba6bdcc3dd4c6
+=======
+>>>>>>> parent of b1ce41b (Merge branch 'Ben' into Milena)
 
 var category
 export default class Iphone extends Component {
