@@ -116,22 +116,22 @@ export default class Iphone extends Component {
 		
 	};
 		
-		//sets image variable to be the bakcgbround of the current state
-		if (this.state.weather == 'Cloudy'){
-			this.image = darkBlue
-		}
-		else if(this.state.weather == 'Sunny'){
-			this.image = skyBlue
-		}
+		// //sets image variable to be the bakcgbround of the current state
+		// if (this.state.weather == 'Cloudy'){
+		// 	this.image = darkBlue
+		// }
+		// else if(this.state.weather == 'Sunny'){
+		// 	this.image = skyBlue
+		// }
 
 
-		// display all weather dataz
-		return (
-			<div class = {style.container} style={{ backgroundImage:`url(${this.image})` }}>
-				<HomeScreen/>
-			</div>
+		// // display all weather dataz
+		// return (
+		// 	<div class = {style.container} style={{ backgroundImage:`url(${this.image})` }}>
+		// 		<HomeScreen/>
+		// 	</div>
 			
-		);
+		// );
 	}
 
 	parseResponse = (parsed_json) => {
@@ -154,4 +154,4 @@ export default class Iphone extends Component {
 			//if main=== Rain -> rainy.png
 		});      
 	}
-}
+
