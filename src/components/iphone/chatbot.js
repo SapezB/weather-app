@@ -34,10 +34,10 @@ recognition.onresult = (e) =>{
         recognition.stop();
         utter.text = "the weather today is relatively sunny - highest of 20 degrees";
         synth.speak(utter);
-    };
+    }
     else if (transcript ==="goodbye"){
         recognition.stop();
         utter.text = "goodbye. see you soon";
         synth.speak(utter);
-    };
+    }
 };
