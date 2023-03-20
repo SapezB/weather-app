@@ -1,21 +1,36 @@
-import { useState } from 'preact';
+import { h, render, Component } from 'preact';
 
-function App() {
-	const [ ourText, setOurText ] = useState('');
-	const msg = new SpeechSynthesisUtterance();
+export default class App extends Component {
+	constructor() {
+		super();
+		this.state = {
+			ourText: ''
+		};
+		this.msg = new SpeechSynthesisUtterance();
+	}
 
-	const speechHandler = (msg) => {
-		msg.text = ourText;
-		window.speechSynthesis.speak(msg);
+	setOurText = (e) => {
+		this.setState({ ourText: e.target.value });
 	};
 
-	return (
-		<div className="App">
-			<h1>React Text to Speech App</h1>
-			<input type="text" value={ourText} placeholder="Enter Text" onChange={(e) => setOurText(e.target.value)} />
-			<button onClick={() => speechHandler(msg)}>SPEAK</button>
-		</div>
-	);
+	speechHandler = () => {
+		this.msg.text = this.state.ourText;
+		window.speechSynthesis.speak(this.msg);
+	};
+
+	render() {
+		const { ourText } = this.state;
+		return (
+			<div className="App">
+				<input
+					type="text"
+					value={ourText}
+					placeholder="Enter Text"
+					onChange={this.setOurText}
+				/>
+				<button onClick={this.speechHandler}>SPEAK</button>
+			</div>
+		);
+	}
 }
 
-export default App;

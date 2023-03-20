@@ -1,10 +1,10 @@
-import { h, render, Component, useState } from 'preact';
+import { h, render, Component} from 'preact';
 import SettingsScreen from '../settingsScreen';
 import Button from '../button';
 import style from './style';
 import LocScreen from '../locScreen';
 import DateScreen from '../dateScreen';
-import Text from '../text-to-speech';
+import Speaker from '../text-to-speech';
 
 export default class homeScreen extends Component {
 	constructor(props) {
@@ -58,18 +58,19 @@ export default class homeScreen extends Component {
 						<p class={style.header}>Temperature</p>
 					</div>
 					<div class="bot">
-						<input
-							class="try"
-							type="text"
-							value={ourText}
-							placeholder="Enter Text"
-							onInput={(e) => setOurText(e.target.value)}
-						/>
-						<button class="mic" onClick={() => speechHandler(msg)}>
-							mic
-						</button>
-						{/* <button class="mic">mic</button> */}
-						<button class="speak">speak</button>
+						{/*<input*/}
+						{/*	class="try"*/}
+						{/*	type="text"*/}
+						{/*	value={ourText}*/}
+						{/*	placeholder="Enter Text"*/}
+						{/*	onInput={(e) => setOurText(e.target.value)}*/}
+						{/*/>*/}
+						{/*<button class="mic" onClick={() => speechHandler(msg)}>*/}
+						{/*	mic*/}
+						{/*</button>*/}
+						{/*/!* <button class="mic">mic</button> *!/*/}
+						{/*<button class="speak">speak</button>*/}
+						<Speaker />
 					</div>
 				</div>
 			);
