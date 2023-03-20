@@ -112,25 +112,25 @@ export default class Iphone extends Component {
 				recognition.stop();
 				utter.text = "Hello";
 				synth.speak(utter);
-			};
+			}
 
-			if (transcript ==="what is the weather like today"){
+			else if (transcript ==="what is the weather like today"){
 				recognition.stop();
 				utter.text = "the weather today is relatively sunny - highest of 20 degrees";
 				synth.speak(utter);
-			};
+			}
 
-			if (transcript ==="goodbye"){
+			else if (transcript ==="goodbye"){
 				recognition.stop();
 				utter.text = "goodbye. see you soon";
 				synth.speak(utter);
-			};
+			}
 
 			else {
 				recognition.stop();
 				utter.text = "I dont know that command yet";
 				synth.speak(utter);
-			};
+			}
 		};
 	}
 
