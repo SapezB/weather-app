@@ -86,7 +86,7 @@ export default class Iphone extends Component {
 		});      
 	}
 
-	speaking(){
+	speaking=()=>{
 		const recognition = new webkitSpeechRecognition();
 		recognition.continuous = true;
 		recognition.lang = "en-US";
