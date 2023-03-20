@@ -13,8 +13,10 @@ export default class locScreen extends Component{
 	}
     switchToHome = () =>{
         this.setState({ screen : 'Home' })
+
     }
 
+    
     render(){
         if(this.state.screen == 'Loc'){
             return(

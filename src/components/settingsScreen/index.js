@@ -3,6 +3,7 @@ import HomeScreen from '../homeScreen';
 import Button from '../button';
 import style from './settings.less';
 
+
 export default class settingsScreen extends Component{
 
     constructor(props) {
@@ -19,7 +20,9 @@ export default class settingsScreen extends Component{
 	}
        
     switchToHome = () =>{
-        this.setState({ screen : 'Home' })
+
+        this.setState({ screen : 'Home'})
+        
     }
     handleSearchClick = () => {
         console.log("showSearchBar before setState:", this.state.showSearchBar);
@@ -28,18 +31,18 @@ export default class settingsScreen extends Component{
         });
     };
 
+    
+
     handleChange(e) {
         this.setState({ value: e.target.value });
-     }
+    }
   
-     keyPress(e){
+    keyPress(e){
         if(e.keyCode == 13){
-           console.log('value', e.target.value);
-           // put the login here
+            this.switchToHome();
         }
-     }
+    }
   
-    
     
     render(){
         if(this.state.screen == 'Set'){
@@ -105,8 +108,9 @@ export default class settingsScreen extends Component{
             );
         }
         else if (this.state.screen == 'Home'){
+            console.log("location after input:", this.state.value);
             return(
-                <HomeScreen/>
+                <HomeScreen location={this.state.value}/>
             );
         }
     }

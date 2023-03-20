@@ -10,12 +10,19 @@ export default class homeScreen extends Component{
     constructor(props) {
 		super(props);
 		this.state = {
-			screen: 'Home'
+			screen: 'Home',
+            location: 'London' ,
 		};
 	}
+
+    handleLocationChange = (e) => {
+        this.setState({location: e.target.value});
+        this.props.setLocation(e.target.value);
+      }
+   
     printLoc() {
-        console.log(this.state.value);
-     }
+        console.log("Loc: ",this.state.location);
+    }
 
     switchToSet = () =>{
         this.setState({ screen : 'Set' })
@@ -35,18 +42,17 @@ export default class homeScreen extends Component{
                     <div>
                         <div class = 'top'>
                             <button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
-                            <button class = 'Location' onClick={this.switchToLoc}>Loc</button>
+                            <button class = 'Location' onClick={this.switchToLoc}>{this.props.location || this.state.location} {/* show current location */}</button>
                             <button class="Settings" onClick={this.switchToSet}>Settings</button>
                         </div>
                         <div class="mid">
                             <p class={ style.header }>Temperature</p>
+                            <p>  {this.props.location}</p>
                         </div>
                         <div class="bot">
                             <button class = 'mic'>mic</button>
                             <button class ='speak'>speak</button>
-                        </div>
-                        <div>
-                            <p>{this.state.value}</p>
+                            {console.log("location :", this.state.location)}
                         </div>
                     </div>
             );
