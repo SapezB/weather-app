@@ -55,105 +55,90 @@ export default class homeScreen extends Component{
 	render() {
         if (this.state.screen == 'Home'){
             const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
-            return (
-                    <div>
+            
+            // display all weather data
+		    if(category=="Rain"){
+			    return (
+				    <div class={ style.containerrainy }>
                         <div class = 'top'>
                             <button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
                             <button class = 'Location' onClick={this.switchToLoc}>Loc</button>
                             <button class="Settings" onClick={this.switchToSet}>Settings</button>
                         </div>
-                        <div class="mid">
-                            <p class={ style.header }>Temperature</p>
+					    <div class={ style.header }>
+			 			    <div class={ style.city }>{ this.state.locate }</div>
+						    {/* <div><img src="http://openweathermap.org/img/wn/${
+							    this.state.icon
+						    }@4x.png"/></div> */}
+			 			    <div class={ style.conditions }>{ this.state.cond }</div>
+			 			    <span class={ tempStyles }>{ this.state.temp }</span>
+			 		    </div>
+			 		    <div class={ style.details }></div>
+			 		    <div class= { style_iphone.container }> 
+			 			    { this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
+			 		    </div>
+                        <div class="bot">
+                            <button class = 'mic'>mic</button>
+                            <button class ='speak'>speak</button>
+                        </div>
+				    </div>
+			    );
+		    }
+            else if(category=="Clear"){
+                return (
+                    <div class={ style.containersunny }>
+                        <div class = 'top'>
+                            <button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
+                            <button class = 'Location' onClick={this.switchToLoc}>Loc</button>
+                            <button class="Settings" onClick={this.switchToSet}>Settings</button>
+                        </div>
+                        <div class={ style.header }>
+                            <div class={ style.city }>{ this.state.locate }</div>
+                            {/* <div><img src="http://openweathermap.org/img/wn/${
+                                this.state.icon
+                            }@4x.png"/></div> */}
+                            <div class={ style.conditions }>{ this.state.cond }</div>
+                            <span class={ tempStyles }>{ this.state.temp }</span>
+                        </div>
+                        <div class={ style.details }></div>
+                        <div class= { style_iphone.container }> 
+                            { this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
                         </div>
                         <div class="bot">
                             <button class = 'mic'>mic</button>
                             <button class ='speak'>speak</button>
                         </div>
                     </div>
-            );
-            // display all weather data
-		if(category=="Rain"){
-			return (
-				<div class={ style.containerrainy }>
+                );
+            }
+            else{
+                return (
+                    <div class={ style.containercloudy }>
                     <div class = 'top'>
                         <button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
                         <button class = 'Location' onClick={this.switchToLoc}>Loc</button>
                         <button class="Settings" onClick={this.switchToSet}>Settings</button>
                     </div>
-					<div class={ style.header }>
-			 			<div class={ style.city }>{ this.state.locate }</div>
-						{/* <div><img src="http://openweathermap.org/img/wn/${
-							this.state.icon
-						}@4x.png"/></div> */}
-			 			<div class={ style.conditions }>{ this.state.cond }</div>
-			 			<span class={ tempStyles }>{ this.state.temp }</span>
-			 		</div>
-			 		<div class={ style.details }></div>
-			 		<div class= { style_iphone.container }> 
-			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
-			 		</div>
-                    <div class="bot">
-                        <button class = 'mic'>mic</button>
-                        <button class ='speak'>speak</button>
+                        <div class={ style.header }>
+                            <div class={ style.city }>{ this.state.locate }</div>
+                            {/* <div><img src="http://openweathermap.org/img/wn/${
+                                this.state.icon
+                            }@4x.png"/></div> */}
+                            <div class={ style.conditions }>{ this.state.cond }</div>
+                            <span class={ tempStyles }>{ this.state.temp }</span>
+                        </div>
+                        <div class={ style.details }></div>
+                        <div class= { style_iphone.container }> 
+                            { this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
+                        </div>
+                        <div class="bot">
+                            <button class = 'mic'>mic</button>
+                            <button class ='speak'>speak</button>
+                        </div>
                     </div>
-				</div>
-			);
-		}
-		else if(category=="Clear"){
-			return (
-				<div class={ style.containersunny }>
-                    <div class = 'top'>
-                        <button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
-                        <button class = 'Location' onClick={this.switchToLoc}>Loc</button>
-                        <button class="Settings" onClick={this.switchToSet}>Settings</button>
-                    </div>
-					<div class={ style.header }>
-			 			<div class={ style.city }>{ this.state.locate }</div>
-						{/* <div><img src="http://openweathermap.org/img/wn/${
-							this.state.icon
-						}@4x.png"/></div> */}
-			 			<div class={ style.conditions }>{ this.state.cond }</div>
-			 			<span class={ tempStyles }>{ this.state.temp }</span>
-			 		</div>
-			 		<div class={ style.details }></div>
-			 		<div class= { style_iphone.container }> 
-			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
-			 		</div>
-                    <div class="bot">
-                        <button class = 'mic'>mic</button>
-                        <button class ='speak'>speak</button>
-                    </div>
-				</div>
-			);
-		}
-		else{
-			return (
-				<div class={ style.containercloudy }>
-                <div class = 'top'>
-                    <button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
-                    <button class = 'Location' onClick={this.switchToLoc}>Loc</button>
-                    <button class="Settings" onClick={this.switchToSet}>Settings</button>
-                </div>
-					<div class={ style.header }>
-			 			<div class={ style.city }>{ this.state.locate }</div>
-						{/* <div><img src="http://openweathermap.org/img/wn/${
-							this.state.icon
-						}@4x.png"/></div> */}
-			 			<div class={ style.conditions }>{ this.state.cond }</div>
-			 			<span class={ tempStyles }>{ this.state.temp }</span>
-			 		</div>
-			 		<div class={ style.details }></div>
-			 		<div class= { style_iphone.container }> 
-			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
-			 		</div>
-                    <div class="bot">
-                        <button class = 'mic'>mic</button>
-                        <button class ='speak'>speak</button>
-                    </div>
-				</div>
-			
-			);
-		}
+                
+                );
+            }
         }
         else if (this.state.screen ==  'Set'){
             return(
