@@ -4,7 +4,7 @@ import Button from '../button';
 import style from './style';
 import LocScreen from '../locScreen';
 import DateScreen from '../dateScreen';
-import Text from '../text-to-speech';
+//import Text from '../text-to-speech';
 
 export default class homeScreen extends Component {
 	constructor(props) {
@@ -26,9 +26,9 @@ export default class homeScreen extends Component {
 		this.setState({ screen: 'Date' });
 	};
 
-	switchToTalk = () => {
-		this.setState({ screen: 'Text' });
-	};
+	// switchToTalk = () => {
+	// 	this.setState({ screen: 'Text' });
+	// };
 
 	App = () => {
 		const [ ourText, setOurText ] = useState('');
@@ -60,13 +60,16 @@ export default class homeScreen extends Component {
 					</div>
 					<div class="bot">
 						<input
+							class="try"
 							type="text"
 							value={ourText}
 							placeholder="Enter Text"
 							onChange={(e) => setOurText(e.target.value)}
 						/>
-						<button onClick={() => speechHandler(msg)}>SPEAK</button>
-						<button class="mic">mic</button>
+						<button class="mic" onClick={() => speechHandler(msg)}>
+							mic
+						</button>
+						{/* <button class="mic">mic</button> */}
 						<button class="speak">speak</button>
 					</div>
 				</div>
