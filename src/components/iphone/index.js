@@ -86,7 +86,7 @@ export default class Iphone extends Component {
 		});      
 	}
 	speaking=()=>{
-		
+
         const recognition = new webkitSpeechRecognition();
         recognition.continuous = true;
         recognition.lang = "en-US";
@@ -96,11 +96,11 @@ export default class Iphone extends Component {
         const synth = window.speechSynthesis;
 
 
-        speechBtn.addEventListener("click", () =>{
-            recognition.start();
-            utter.text = "Hello. i am your chatbot for today.... some basic questions you can ask are: what is the weather like today?";
-            synth.speak(utter); 
-        });
+        
+        recognition.start();
+        utter.text = "Hello. i am your chatbot for today.... some basic questions you can ask are: what is the weather like today?";
+        synth.speak(utter); 
+        
 
         let utter = new SpeechSynthesisUtterance("Hi");
         utter.onend = () => {
