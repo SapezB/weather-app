@@ -36,7 +36,8 @@ export default class App extends Component {
 		else {
 			return (
 				<div id="app">
-					<homeScreen/ >
+					{/* <Iphone/ > */}
+					<homeScreen/>
 				</div>
 			);
 		}
