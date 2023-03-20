@@ -22,23 +22,23 @@ export default class homeScreen extends Component{
 			screen: 'Home'
 		};
         // button display state
-		this.setState({ display: true });
+		//this.setState({ display: true });
 	}
 
     // a call to fetch weather data via wunderground
-	fetchWeatherData = () => {
+	//fetchWeatherData = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 		// my API key: 1812aa1047a527c9537d5e2315c80ba0
-		var url = "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=1812aa1047a527c9537d5e2315c80ba0";
-		$.ajax({
-			url: url,
-			dataType: "jsonp",
-			success : this.parseResponse,
-			error : function(req, err){ console.log('API call failed ' + err); }
-		})
+		// var url = "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=1812aa1047a527c9537d5e2315c80ba0";
+		// $.ajax({
+		// 	url: url,
+		// 	dataType: "jsonp",
+		// 	success : this.parseResponse,
+		// 	error : function(req, err){ console.log('API call failed ' + err); }
+		// })
 		// once the data grabbed, hide the button
-		this.setState({ display: false });
-	}
+		//this.setState({ display: false });
+	//}
 
     switchToSet = () =>{
         this.setState({ screen : 'Set' })
@@ -54,6 +54,13 @@ export default class homeScreen extends Component{
 
 	render() {
         if (this.state.screen == 'Home'){
+            var url = "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=1812aa1047a527c9537d5e2315c80ba0";
+            $.ajax({
+                url: url,
+                dataType: "jsonp",
+                success : this.parseResponse,
+                error : function(req, err){ console.log('API call failed ' + err); }
+            })
             const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
             
             // display all weather data
