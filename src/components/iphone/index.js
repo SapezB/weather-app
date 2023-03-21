@@ -7,6 +7,8 @@ import style_iphone from '../button/style_iphone';
 import $ from 'jquery';
 // import the Button component
 import Button from '../button';
+//import icons for buttons
+import { FaMicrophone } from "react-icons/fa";
 //import HomeScreen from '../homeScreen'
 
 var category
@@ -79,7 +81,7 @@ export default class Iphone extends Component {
 			 		<div class= { style_iphone.container }> 
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
 						 <div class={style.bottom}>
-							<button class = 'mic'>mic</button>
+							<button class = 'mic'><FaMicrophone /></button>
 							<button class ='speak'>speak</button>
 						 </div>
 					</div>
@@ -106,7 +108,7 @@ export default class Iphone extends Component {
 			 		<div class= { style_iphone.container }> 
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
 						 <div class={style.bottom}>
-							<button class = 'mic'>mic</button>
+							<button class = 'mic'><FaMicrophone /></button>
 							<button class ='speak'>speak</button>
 						 </div>
 			 		</div>
@@ -136,7 +138,7 @@ export default class Iphone extends Component {
 							clickFunction={ this.fetchWeatherData }/ > : null 
 						}
 						<div class={style.bottom}>
-							<button class = 'mic'>mic</button>
+							<button class = 'mic'><FaMicrophone /></button>
 							<button class ='speak'>speak</button>
 						 </div>
 			 		</div>
