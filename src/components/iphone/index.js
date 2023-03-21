@@ -78,10 +78,11 @@ export default class Iphone extends Component {
 			 		<div class={ style.details }></div>
 			 		<div class= { style_iphone.container }> 
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
-			 		</div>
-					<div class={style.bottom}>
 						<button class = 'mic'>mic</button>
 						<button class ='speak'>speak</button>
+					</div>
+					<div class={style.bottom}>
+						
 					</div>
 				</div>
 			);
@@ -105,10 +106,11 @@ export default class Iphone extends Component {
 			 		<div class={ style.details }></div>
 			 		<div class= { style_iphone.container }> 
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
+						<button class = 'mic'>mic</button>
+					 	<button class ='speak'>speak</button>
 			 		</div>
 					<div class={style.bottom}>
-					 	<button class = 'mic'>mic</button>
-					 	<button class ='speak'>speak</button>
+					 	
 				 	</div>
 				</div>
 			);
@@ -135,10 +137,11 @@ export default class Iphone extends Component {
 							<Button class={ style_iphone.button } 
 							clickFunction={ this.fetchWeatherData }/ > : null 
 						}
+						<button class = 'mic'>mic</button>
+					 	<button class ='speak'>speak</button>
 			 		</div>
 					<div class={style.bottom}>
-					 	<button class = 'mic'>mic</button>
-					 	<button class ='speak'>speak</button>
+					 	
 				 	</div>
 				</div>
 			
