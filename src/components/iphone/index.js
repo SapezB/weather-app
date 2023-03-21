@@ -8,7 +8,9 @@ import $ from 'jquery';
 // import the Button component
 import Button from '../button';
 //import icons for buttons
-import { FaMicrophone, HiSpeakerWave, IoSettingsSharp } from "react-icons/fa";
+import { FaMicrophone } from "react-icons/fa";
+import { HiSpeakerWave } from "react-icons/hi";
+import { IoMdSettings } from "react-icons/io";
 
 
 //import HomeScreen from '../homeScreen'
@@ -69,7 +71,7 @@ export default class Iphone extends Component {
 					<div class = 'top'>
 						<button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
 						<button class = 'Location' onClick={this.switchToLoc}>Loc</button>
-						<button class="Settings" onClick={this.switchToSet}><IoSettingsSharp /></button>
+						<button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 					</div>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
@@ -96,7 +98,7 @@ export default class Iphone extends Component {
 					<div class = 'top'>
 						<button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
 						<button class = 'Location' onClick={this.switchToLoc}>Loc</button>
-						<button class="Settings" onClick={this.switchToSet}><IoSettingsSharp /></button>
+						<button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 					</div>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
@@ -123,7 +125,7 @@ export default class Iphone extends Component {
 					<div class = 'top'>
 						<button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
 						<button class = 'Location' onClick={this.switchToLoc}>Loc</button>
-						<button class="Settings" onClick={this.switchToSet}><IoSettingsSharp /></button>
+						<button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 					</div>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
