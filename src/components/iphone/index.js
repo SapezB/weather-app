@@ -9,7 +9,7 @@ import $ from 'jquery';
 import Button from '../button';
 //import icons for buttons
 import { FaMicrophone } from "react-icons/fa";
-import { HiSpeakerWave } from "react-icons/hi2";
+import { GiSpeaker } from "react-icons/gi";
 import { IoMdSettings } from "react-icons/io";
 
 
@@ -86,7 +86,7 @@ export default class Iphone extends Component {
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
 						 <div class={style.bottom}>
 							<button class = 'mic'><FaMicrophone /></button>
-							<button class ='speak'><HiSpeakerWave /></button>
+							<button class ='speak'><GiSpeaker /></button>
 						 </div>
 					</div>
 				</div>
@@ -113,7 +113,7 @@ export default class Iphone extends Component {
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
 						 <div class={style.bottom}>
 							<button class = 'mic'><FaMicrophone /></button>
-							<button class ='speak'><HiSpeakerWave /></button>
+							<button class ='speak'><GiSpeaker /></button>
 						 </div>
 			 		</div>
 				</div>
@@ -143,7 +143,7 @@ export default class Iphone extends Component {
 						}
 						<div class={style.bottom}>
 							<button class = 'mic'><FaMicrophone /></button>
-							<button class ='speak'><HiSpeakerWave /></button>
+							<button class ='speak'><GiSpeaker /></button>
 						 </div>
 			 		</div>
 				</div>
