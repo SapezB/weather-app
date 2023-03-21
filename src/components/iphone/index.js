@@ -74,7 +74,7 @@ export default class Iphone extends Component {
 		if(category=="Rain"){
 			return (
 				<div class={ style.containerrainy }>
-					<div class = {style_iphone.container}>
+					<div class = {style.topBtn}>
 						<button class = 'Date' onClick={this.switchToDate}>{this.state.currentDate}</button>
 						<button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 					</div>
@@ -100,7 +100,7 @@ export default class Iphone extends Component {
 		else if(category=="Clear"){
 			return (
 				<div class={ style.containersunny }>
-					<div class = {style_iphone.container}>
+					<div class = {style.topBtn}>
 						<button class = 'Date' onClick={this.switchToDate}>{this.state.currentDate}</button>
 						<button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 					</div>
@@ -126,7 +126,7 @@ export default class Iphone extends Component {
 		else{
 			return (
 				<div class={ style.containercloudy }>
-					<div class = {style_iphone.container} >
+					<div class = {style.topBtn} >
 						<button class = 'Date' onClick={this.switchToDate}>{this.state.currentDate}</button>
 						<button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 					</div>
