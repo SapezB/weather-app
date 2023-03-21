@@ -9,7 +9,7 @@ import $ from 'jquery';
 import Button from '../button';
 //import icons for buttons
 import { FaMicrophone } from "react-icons/fa";
-import { HiSpeakerWave } from "react-icons/hi";
+import { HiSpeakerWave } from "react-icons/hi2";
 import { IoMdSettings } from "react-icons/io";
 
 
