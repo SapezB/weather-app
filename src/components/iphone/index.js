@@ -8,9 +8,7 @@ import $ from 'jquery';
 // import the Button component
 import Button from '../button';
 //import icons for buttons
-import { FaMicrophone } from "react-icons/fa";
-import { HiSpeakerWave } from "react-icons/fa";
-import { IoSettingsSharp } from "react-icons/fa";
+import { FaMicrophone, HiSpeakerWave, IoSettingsSharp } from "react-icons/fa";
 
 
 //import HomeScreen from '../homeScreen'
