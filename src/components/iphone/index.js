@@ -9,6 +9,10 @@ import $ from 'jquery';
 import Button from '../button';
 //import icons for buttons
 import { FaMicrophone } from "react-icons/fa";
+import { HiSpeakerWave } from "react-icons/fa";
+import { IoSettingsSharp } from "react-icons/fa";
+
+
 //import HomeScreen from '../homeScreen'
 
 var category
@@ -67,7 +71,7 @@ export default class Iphone extends Component {
 					<div class = 'top'>
 						<button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
 						<button class = 'Location' onClick={this.switchToLoc}>Loc</button>
-						<button class="Settings" onClick={this.switchToSet}>Settings</button>
+						<button class="Settings" onClick={this.switchToSet}><IoSettingsSharp /></button>
 					</div>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
@@ -82,7 +86,7 @@ export default class Iphone extends Component {
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
 						 <div class={style.bottom}>
 							<button class = 'mic'><FaMicrophone /></button>
-							<button class ='speak'>speak</button>
+							<button class ='speak'><HiSpeakerWave /></button>
 						 </div>
 					</div>
 				</div>
@@ -94,7 +98,7 @@ export default class Iphone extends Component {
 					<div class = 'top'>
 						<button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
 						<button class = 'Location' onClick={this.switchToLoc}>Loc</button>
-						<button class="Settings" onClick={this.switchToSet}>Settings</button>
+						<button class="Settings" onClick={this.switchToSet}><IoSettingsSharp /></button>
 					</div>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
@@ -109,7 +113,7 @@ export default class Iphone extends Component {
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
 						 <div class={style.bottom}>
 							<button class = 'mic'><FaMicrophone /></button>
-							<button class ='speak'>speak</button>
+							<button class ='speak'><HiSpeakerWave /></button>
 						 </div>
 			 		</div>
 				</div>
@@ -121,7 +125,7 @@ export default class Iphone extends Component {
 					<div class = 'top'>
 						<button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
 						<button class = 'Location' onClick={this.switchToLoc}>Loc</button>
-						<button class="Settings" onClick={this.switchToSet}>Settings</button>
+						<button class="Settings" onClick={this.switchToSet}><IoSettingsSharp /></button>
 					</div>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
@@ -139,7 +143,7 @@ export default class Iphone extends Component {
 						}
 						<div class={style.bottom}>
 							<button class = 'mic'><FaMicrophone /></button>
-							<button class ='speak'>speak</button>
+							<button class ='speak'><HiSpeakerWave /></button>
 						 </div>
 			 		</div>
 				</div>
