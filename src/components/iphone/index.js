@@ -62,6 +62,11 @@ export default class Iphone extends Component {
 		if(category=="Rain"){
 			return (
 				<div class={ style.containerrainy }>
+					<div class = 'top'>
+						<button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
+						<button class = 'Location' onClick={this.switchToLoc}>Loc</button>
+						<button class="Settings" onClick={this.switchToSet}>Settings</button>
+					</div>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
 						{/* <div><img src="http://openweathermap.org/img/wn/${
@@ -74,12 +79,21 @@ export default class Iphone extends Component {
 			 		<div class= { style_iphone.container }> 
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
 			 		</div>
+					<div class="bot">
+						<button class = 'mic'>mic</button>
+						<button class ='speak'>speak</button>
+					</div>
 				</div>
 			);
 		}
 		else if(category=="Clear"){
 			return (
 				<div class={ style.containersunny }>
+					<div class = 'top'>
+						<button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
+						<button class = 'Location' onClick={this.switchToLoc}>Loc</button>
+						<button class="Settings" onClick={this.switchToSet}>Settings</button>
+					</div>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
 						{/* <div><img src="http://openweathermap.org/img/wn/${
@@ -92,12 +106,21 @@ export default class Iphone extends Component {
 			 		<div class= { style_iphone.container }> 
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
 			 		</div>
+					<div class="bot">
+					 	<button class = 'mic'>mic</button>
+					 	<button class ='speak'>speak</button>
+				 	</div>
 				</div>
 			);
 		}
 		else{
 			return (
 				<div class={ style.containercloudy }>
+					<div class = 'top'>
+						<button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
+						<button class = 'Location' onClick={this.switchToLoc}>Loc</button>
+						<button class="Settings" onClick={this.switchToSet}>Settings</button>
+					</div>
 					<div class={ style.header }>
 			 			<div class={ style.city }>{ this.state.locate }</div>
 						{/* <div><img src="http://openweathermap.org/img/wn/${
@@ -110,6 +133,10 @@ export default class Iphone extends Component {
 			 		<div class= { style_iphone.container }> 
 			 			{ this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
 			 		</div>
+					<div class="bot">
+					 	<button class = 'mic'>mic</button>
+					 	<button class ='speak'>speak</button>
+				 	</div>
 				</div>
 			
 			);
