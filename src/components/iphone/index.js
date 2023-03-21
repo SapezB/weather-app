@@ -22,6 +22,12 @@ export default class Iphone extends Component {
 	// a constructor with initial set states
 	constructor(props){
 		super(props);
+		var today = new Date(),
+		date = today.getFullYear() + '/' + (today.getMonth() +1) + today.getDate();
+		
+		this.state = {
+			currentDate: date
+		}
 		// temperature state
 		this.state.temp = "";
 		// button display state
@@ -69,8 +75,7 @@ export default class Iphone extends Component {
 			return (
 				<div class={ style.containerrainy }>
 					<div class = 'top'>
-						<button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
-						<button class = 'Location' onClick={this.switchToLoc}>Loc</button>
+						<button class = 'Date' onClick={this.switchToDate}>{this.state.currentDate}</button>
 						<button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 					</div>
 					<div class={ style.header }>
@@ -96,8 +101,7 @@ export default class Iphone extends Component {
 			return (
 				<div class={ style.containersunny }>
 					<div class = 'top'>
-						<button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
-						<button class = 'Location' onClick={this.switchToLoc}>Loc</button>
+						<button class = 'Date' onClick={this.switchToDate}>{this.state.currentDate}</button>
 						<button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 					</div>
 					<div class={ style.header }>
@@ -123,8 +127,7 @@ export default class Iphone extends Component {
 			return (
 				<div class={ style.containercloudy }>
 					<div class = 'top'>
-						<button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
-						<button class = 'Location' onClick={this.switchToLoc}>Loc</button>
+						<button class = 'Date' onClick={this.switchToDate}>{this.state.currentDate}</button>
 						<button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 					</div>
 					<div class={ style.header }>
