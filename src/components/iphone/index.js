@@ -23,7 +23,7 @@ export default class Iphone extends Component {
 	constructor(props){
 		super(props);
 		var today = new Date(),
-		date = today.getFullYear() + '/' + (today.getMonth() +1) + today.getDate();
+		date = today.getFullYear() + '/' + (today.getMonth() +1) +'/'+ today.getDate();
 		
 		this.state = {
 			currentDate: date
@@ -74,7 +74,7 @@ export default class Iphone extends Component {
 		if(category=="Rain"){
 			return (
 				<div class={ style.containerrainy }>
-					<div class = 'top'>
+					<div class = {style_iphone.container}>
 						<button class = 'Date' onClick={this.switchToDate}>{this.state.currentDate}</button>
 						<button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 					</div>
@@ -100,7 +100,7 @@ export default class Iphone extends Component {
 		else if(category=="Clear"){
 			return (
 				<div class={ style.containersunny }>
-					<div class = 'top'>
+					<div class = {style_iphone.container}>
 						<button class = 'Date' onClick={this.switchToDate}>{this.state.currentDate}</button>
 						<button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 					</div>
@@ -126,7 +126,7 @@ export default class Iphone extends Component {
 		else{
 			return (
 				<div class={ style.containercloudy }>
-					<div class = 'top'>
+					<div class = {style_iphone.container} >
 						<button class = 'Date' onClick={this.switchToDate}>{this.state.currentDate}</button>
 						<button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 					</div>
