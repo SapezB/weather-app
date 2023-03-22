@@ -40,9 +40,6 @@ export default class homeScreen extends Component{
         this.setState({ screen : 'Set' })
     }
 
-    switchToLoc = () =>{
-        this.setState({ screen : 'Loc'})
-    }
 
     switchToDate = () =>{
         this.setState({ screen : 'Date'})
@@ -55,7 +52,6 @@ export default class homeScreen extends Component{
                     <div>
                         <div class = 'top'>
                             <button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
-                            <button class = 'Location' onClick={this.switchToLoc}>Loc</button>
                             <button class="Settings" onClick={this.switchToSet}>Settings</button>
                         </div>
                         <div class="mid">
@@ -84,13 +80,6 @@ export default class homeScreen extends Component{
             return(
                 <div>
                     <SettingsScreen/>
-                </div>
-            )
-        }
-        else if(this.state.screen == 'Loc'){
-            return(
-                <div>
-                    <LocScreen/>
                 </div>
             )
         }

@@ -22,7 +22,7 @@ export default class settingsScreen extends Component{
             return(
                 <div>
                     <h1>Settings screen</h1>
-                    <Button class='Back' clickFunction = {this.switchToHome}/>
+                    <Button name='Back' clickFunction = {this.switchToHome}/>
                 </div>
             );
         }
