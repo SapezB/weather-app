@@ -5,8 +5,35 @@ import style from './style';
 import LocScreen from '../locScreen';
 import DateScreen from '../dateScreen';
 import Speaker from '../text-to-speech';
-import SpeechChatbot from '../chatbot';
 
+
+
+function speaking123 () {
+	console.log("why")
+
+
+	
+	const recognition = new webkitSpeechRecognition();
+	recognition.continuous = true;
+	recognition.lang = "en-US";
+	recognition.interimResults = false;
+	recognition.maxAlternatives = 1;
+
+	const greeting = new SpeechSynthesisUtterance("Hello. i am your chatbot for today.... some basic questions you can ask are: what is the weather like today?");
+	const hi = new SpeechSynthesisUtterance("Hi!");
+
+	recognition.onresult = function(event) {
+	const speechToTex = event.results[0][0].transcript;
+	console.log(speechToTex);
+	if (speechToTex.toLowerCase().includes("hi")) {
+		window.speechSynthesis.speak(hi);
+	}
+	};
+
+	window.speechSynthesis.speak(greeting);
+	recognition.start();
+
+}
 export default class homeScreen extends Component {
 	constructor(props) {
 		super(props);
@@ -74,7 +101,7 @@ export default class homeScreen extends Component {
 						<Speaker />
 					</div>
 					<div class="speechA">
-						<button class="speechBtn" onClick={<SpeechChatbot />}>speech-speech</button>
+						<button class="speechBtn" onClick={speaking123} >speech-speech</button>
 							
 					</div>
 
