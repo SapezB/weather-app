@@ -5,6 +5,7 @@ import style from './style';
 import LocScreen from '../locScreen';
 import DateScreen from '../dateScreen'
 import style_iphone from '../button/style_iphone';
+import $ from 'jquery';
 
 export default class homeScreen extends Component{
     
@@ -12,7 +13,8 @@ export default class homeScreen extends Component{
 		super(props);
 		this.state = {
 			screen: 'Home',
-            category: this.props.category
+            category: this.props.category,
+            display: true
 
 		};
 	}
@@ -107,7 +109,6 @@ export default class homeScreen extends Component{
 		var conditions = parsed_json['weather']['0']['description'];
 		var icon = parsed_json['weather']['0']['icon'];
 		var main = parsed_json['weather']['0']['main']
-		category=main;
 
 		// set states for fields so they could be rendered later on
 		this.setState({
