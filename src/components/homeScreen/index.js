@@ -60,7 +60,7 @@ export default class homeScreen extends Component{
         if (this.state.screen == 'Home'){
                 return (
                     <div>
-                        <div class = 'top'>
+                        <div class = {style.topBtn}>
                             <button class = 'Date' onClick={this.switchToDate}>{ this.state.currentDate }</button>
                             <button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
                         </div>
@@ -76,11 +76,12 @@ export default class homeScreen extends Component{
                             <div class={ style.details }></div>
                             <div class= { style_iphone.container }> 
                                 { this.state.display ? <Button class={style_iphone.button } name = 'Fetch Weather Data' clickFunction={ this.fetchWeatherData }/ > : null }
+                                <div class={style_iphone.bottom}>
+                                    <button class = 'mic'><FaMicrophone /></button>
+                                    <button class ='speak'><GiSpeaker /></button>
+                                </div>
                             </div>
-                            <div class="bot">
-                                <button class = 'mic'><FaMicrophone /></button>
-                                <button class ='speak'><GiSpeaker /></button>
-                            </div>
+                            
                         </div>
                         
                     </div>
