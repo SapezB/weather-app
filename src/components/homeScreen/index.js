@@ -6,6 +6,10 @@ import LocScreen from '../locScreen';
 import DateScreen from '../dateScreen'
 import style_iphone from '../button/style_iphone';
 import $ from 'jquery';
+//import icons for buttons
+import { FaMicrophone } from "react-icons/fa";
+import { GiSpeaker } from "react-icons/gi";
+import { IoMdSettings } from "react-icons/io";
 
 export default class homeScreen extends Component{
     
@@ -55,8 +59,7 @@ export default class homeScreen extends Component{
                     <div>
                         <div class = 'top'>
                             <button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
-                            <button class = 'Location' onClick={this.switchToLoc}>Loc</button>
-                            <button class="Settings" onClick={this.switchToSet}>Settings</button>
+                            <button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
                         </div>
                         <div class="mid">
                                 <div class={ style.header }>
@@ -72,8 +75,8 @@ export default class homeScreen extends Component{
                                 { this.state.display ? <Button class={style_iphone.button } name = 'Fetch Weather Data' clickFunction={ this.fetchWeatherData }/ > : null }
                             </div>
                             <div class="bot">
-                                <button class = 'mic'>mic</button>
-                                <button class ='speak'>speak</button>
+                                <button class = 'mic'><FaMicrophone /></button>
+                                <button class ='speak'><GiSpeaker /></button>
                             </div>
                         </div>
                         
