@@ -69,7 +69,7 @@ export default class homeScreen extends Component{
                             </div>
                             <div class={ style.details }></div>
                             <div class= { style_iphone.container }> 
-                                { this.state.display ? <Button class={ style_iphone.button } clickFunction={ this.fetchWeatherData }/ > : null }
+                                { this.state.display ? <Button class={style_iphone.button } name = 'Fetch Weather Data' clickFunction={ this.fetchWeatherData }/ > : null }
                             </div>
                         </div>
                         <div class="bot">

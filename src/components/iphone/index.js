@@ -20,8 +20,7 @@ export default class Iphone extends Component {
 		this.state.temp = "";
 		// button display state
 		this.setState({ display: true });
-		// this.state = { weather : 'Cloudy'}
-		// this.image = darkBlue
+
 	}
 
 	// a call to fetch weather data via wunderground
@@ -78,7 +77,7 @@ export default class Iphone extends Component {
 		var temp_c = parsed_json['main']['temp'];
 		var conditions = parsed_json['weather']['0']['description'];
 		var icon = parsed_json['weather']['0']['icon'];
-		var main = parsed_json['weather']['0']['main']
+		var main = parsed_json['weather']['0']['main'];
 		category=main;
 
 		// set states for fields so they could be rendered later on
@@ -88,9 +87,6 @@ export default class Iphone extends Component {
 			cond : conditions,
 			icon: icon,
 			main: main
-			//if main=== Clear -> sunny.png
-			//if main=== Clouds -> cloudy.png
-			//if main=== Rain -> rainy.png
 		});      
 	}
 }
