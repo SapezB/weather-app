@@ -1,7 +1,7 @@
 import { h, render, Component } from 'preact';
 
 export default class App extends Component {
-	constructor() {
+	constructor(words) {
 		super();
 		this.state = {
 			ourText: ''
@@ -9,9 +9,9 @@ export default class App extends Component {
 		this.msg = new SpeechSynthesisUtterance();
 	}
 
-	setOurText = (e) => {
-		this.setState({ ourText: e.target.value });
-	};
+	// setOurText = (e) => {
+	// 	this.setState({ ourText: e.target.value });
+	// };
 
 	speechHandler = () => {
 		this.msg.text = this.state.ourText;
@@ -22,15 +22,9 @@ export default class App extends Component {
 		const { ourText } = this.state;
 		return (
 			<div className="App">
-				<input
-					type="text"
-					value={ourText}
-					placeholder="Enter Text"
-					onChange={this.setOurText}
-				/>
+				{/* <input type="text" value={ourText} placeholder="Enter Text" onChange={this.setOurText} /> */}
 				<button onClick={this.speechHandler}>SPEAK</button>
 			</div>
 		);
 	}
 }
-
