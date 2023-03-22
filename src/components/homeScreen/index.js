@@ -71,11 +71,12 @@ export default class homeScreen extends Component{
                             <div class= { style_iphone.container }> 
                                 { this.state.display ? <Button class={style_iphone.button } name = 'Fetch Weather Data' clickFunction={ this.fetchWeatherData }/ > : null }
                             </div>
-                        </div>
-                        <div class="bot">
+                            <div class="bot">
                                 <button class = 'mic'>mic</button>
                                 <button class ='speak'>speak</button>
+                            </div>
                         </div>
+                        
                     </div>
                     );
                 }
