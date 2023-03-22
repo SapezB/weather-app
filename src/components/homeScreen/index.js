@@ -15,7 +15,9 @@ export default class homeScreen extends Component{
 			screen: 'Home',
             category: this.props.category,
             display: true
-
+,
+            location: 'London' ,
+            unit:'imperial'
 		};
 	}
 
@@ -35,6 +37,19 @@ export default class homeScreen extends Component{
 		// once the data grabbed, hide the button
 		this.setState({ display: false });
 	}
+
+    handleLocationChange = (e) => {
+        this.setState({location: e.target.value});
+        this.props.setLocation(e.target.value);
+      }
+      
+    handleUnitChange = (e) => {
+        this.setState({unit: e.target.value});
+        this.props.setUnit(e.target.value);
+    }
+    printLoc() {
+        console.log("Loc: ",this.state.location);
+    }
 
     switchToSet = () =>{
         this.setState({ screen : 'Set' })
@@ -67,10 +82,13 @@ export default class homeScreen extends Component{
                             <div class= { style_iphone.container }> 
                                 { this.state.display ? <Button class={style_iphone.button } name = 'Fetch Weather Data' clickFunction={ this.fetchWeatherData }/ > : null }
                             </div>
+                            <p>  {this.props.location}</p>
+                            <p>  {this.props.unit}</p>
                         </div>
                         <div class="bot">
                                 <button class = 'mic'>mic</button>
                                 <button class ='speak'>speak</button>
+                            {console.log("location :", this.state.location)}
                         </div>
                     </div>
                     );
