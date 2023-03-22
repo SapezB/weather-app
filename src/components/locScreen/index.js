@@ -21,7 +21,7 @@ export default class locScreen extends Component{
             return(
                 <div>
                     <h1>Location screen</h1>
-                    <Button class='Back' clickFunction = {this.switchToHome}/>
+                    <Button name='Back' clickFunction = {this.switchToHome}/>
                 </div>
             );
         }
