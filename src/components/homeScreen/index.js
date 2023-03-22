@@ -15,11 +15,14 @@ export default class homeScreen extends Component{
     
     constructor(props) {
 		super(props);
+        var today = new Date(),
+		date = today.getFullYear() + '/' + (today.getMonth() +1) +'/'+ today.getDate();
+		
 		this.state = {
 			screen: 'Home',
             category: this.props.category,
-            display: true
-
+            display: true,
+            currentDate: date
 		};
 	}
 
@@ -58,7 +61,7 @@ export default class homeScreen extends Component{
                 return (
                     <div>
                         <div class = 'top'>
-                            <button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
+                            <button class = 'Date' onClick={this.switchToDate}>{ this.state.currentDate }</button>
                             <button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
                         </div>
                         <div class="mid">
