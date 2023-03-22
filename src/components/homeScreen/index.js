@@ -1,8 +1,9 @@
-import { h, render, Component , useState} from 'preact';
+import { h, render, Component} from 'preact';
 import SettingsScreen from '../settingsScreen';
 import Button from '../button';
 import style from './style';
 import LocScreen from '../locScreen';
+import Speaker from '../text-to-speech';
 import DateScreen from '../dateScreen'
 import style_iphone from '../button/style_iphone';
 import $ from 'jquery';
@@ -11,9 +12,8 @@ import { FaMicrophone } from "react-icons/fa";
 import { GiSpeaker } from "react-icons/gi";
 import { IoMdSettings } from "react-icons/io";
 
-export default class homeScreen extends Component{
-    
-    constructor(props) {
+export default class homeScreen extends Component {
+	constructor(props) {
 		super(props);
         var today = new Date(),
 		date = today.getFullYear() + '/' + (today.getMonth() +1) +'/'+ today.getDate();
@@ -46,11 +46,26 @@ export default class homeScreen extends Component{
     switchToSet = () =>{
         this.setState({ screen : 'Set' })
     }
+    
+   switchToLoc = () => {
+		this.setState({ screen: 'Loc' });
+	};
 
+	switchToDate = () => {
+		this.setState({ screen: 'Date' });
+	};
 
-    switchToDate = () =>{
-        this.setState({ screen : 'Date'})
-    }
+	// switchToTalk = () => {
+	// 	this.setState({ screen: 'Text' });
+	// };
+	// App = () => {
+	//     const [ ourText, setOurText ] = useState('');
+	// 	const msg = new SpeechSynthesisUtterance();
+	// 	const speechHandler = (msg) => {
+	// 		msg.text = ourText;
+	// 		window.speechSynthesis.speak(msg);
+	// 	};
+	// };
 
 	render() {
         const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
@@ -59,9 +74,11 @@ export default class homeScreen extends Component{
                     <div>
                         <div class = {style.topBtn}>
                             <button class = 'Date' onClick={this.switchToDate}>{ this.state.currentDate }</button>
+                            <button class="Location" onClick={this.switchToLoc}>Loc</button>
                             <button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
                         <div class = 'top'>
                             <button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
+                            <button class="Location" onClick={this.switchToLoc}>Loc</button>
                             <button class="Settings" onClick={this.switchToSet}>Settings</button>
                         </div>
                         <div class="mid">
@@ -81,7 +98,21 @@ export default class homeScreen extends Component{
                                     <button class ='speak'><GiSpeaker /></button>
                                 </div>
                             </div>
-                            
+                              <div class="bot">
+                              {/*<input*/}
+                              {/*	class="try"*/}
+                              {/*	type="text"*/}
+                              {/*	value={ourText}*/}
+                              {/*	placeholder="Enter Text"*/}
+                              {/*	onInput={(e) => setOurText(e.target.value)}*/}
+                              {/*/>*/}
+                              {/*<button class="mic" onClick={() => speechHandler(msg)}>*/}
+                              {/*	mic*/}
+                              {/*</button>*/}
+                              {/*/!* <button class="mic">mic</button> *!/*/}
+                              {/*<button class="speak">speak</button>*/}
+                              <Speaker />
+					                  </div>
                         </div>
                         
                     </div>
@@ -95,12 +126,19 @@ export default class homeScreen extends Component{
                 </div>
             )
         }
+        else if (this.state.screen == 'Loc') {
+			return (
+				<div>
+					<LocScreen />
+				</div>
+			);
+		} 
         else if(this.state.screen == 'Date'){
             return(
                 <div>
                     <DateScreen/>
                 </div>
-            )
+            );
         }
 	}
 
@@ -125,7 +163,3 @@ export default class homeScreen extends Component{
 	}
 
 }
-
-
-
-
