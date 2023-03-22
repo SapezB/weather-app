@@ -8,7 +8,8 @@ export default class locScreen extends Component{
     constructor(props) {
 		super(props);
 		this.state = {
-			screen: 'Loc'
+			screen: 'Loc',
+            category: this.props.category
 		};
 	}
     switchToHome = () =>{
@@ -26,7 +27,7 @@ export default class locScreen extends Component{
         }
         else if (this.state.screen == 'Home'){
             return(
-                <HomeScreen/>
+                <HomeScreen categroy ={this.state.category}/>
             );
         }
     }

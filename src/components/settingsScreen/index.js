@@ -8,7 +8,8 @@ export default class settingsScreen extends Component{
     constructor(props) {
 		super(props);
 		this.state = {
-			screen: 'Set'
+			screen: 'Set',
+            category: this.props.category
 		};
 	}
     switchToHome = () =>{
@@ -27,7 +28,7 @@ export default class settingsScreen extends Component{
         }
         else if (this.state.screen == 'Home'){
             return(
-                <HomeScreen/>
+                <HomeScreen categroy = {this.state.category}/>
             );
         }
     }
