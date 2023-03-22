@@ -5,6 +5,7 @@ import style from './style';
 import LocScreen from '../locScreen';
 import DateScreen from '../dateScreen';
 import Speaker from '../text-to-speech';
+import SpeechChatbot from '../chatbot';
 
 export default class homeScreen extends Component {
 	constructor(props) {
@@ -73,7 +74,7 @@ export default class homeScreen extends Component {
 						<Speaker />
 					</div>
 					<div class="speechA">
-						<button class="speechBtn" onClick={this.speaking}>speech-speech</button>
+						<button class="speechBtn" onClick={<SpeechChatbot />}>speech-speech</button>
 							
 					</div>
 
