@@ -11,8 +11,6 @@ import Speaker from '../text-to-speech';
 function speaking123 () {
 	console.log("why")
 
-
-	
 	const recognition = new webkitSpeechRecognition();
 	recognition.continuous = true;
 	recognition.lang = "en-US";
@@ -20,20 +18,26 @@ function speaking123 () {
 	recognition.maxAlternatives = 1;
 
 	const greeting = new SpeechSynthesisUtterance("Hello. i am your chatbot for today.... some basic questions you can ask are: what is the weather like today?");
-	const hi = new SpeechSynthesisUtterance("Hi!");
 
-	recognition.onresult = function(event) {
-	const speechToTex = event.results[0][0].transcript;
-	console.log(speechToTex);
-	if (speechToTex.toLowerCase().includes("hi")) {
-		window.speechSynthesis.speak(hi);
-	}
+	const weatherTodayBot = new SpeechSynthesisUtterance("the weather today is very sunny with a highest of 20 degrees");
+
+
+
+	recognition.onresult = function(event){
+		const speechToTex = event.results[0][0].transcript;
+		console.log(speechToTex);
+		if (speechToTex.toLowerCase().includes("what is the weather like today")) {
+			window.speechSynthesis.speak(weatherTodayBot);
+		}
 	};
-
 	window.speechSynthesis.speak(greeting);
 	recognition.start();
+};
 
-}
+
+
+
+
 export default class homeScreen extends Component {
 	constructor(props) {
 		super(props);
