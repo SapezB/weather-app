@@ -20,13 +20,15 @@ export default class Iphone extends Component {
 		this.state.temp = "";
 		// button display state
 		this.setState({ display: true });
+
 	}
 
 	// a call to fetch weather data via wunderground
 	fetchWeatherData = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 		// my API key: 1812aa1047a527c9537d5e2315c80ba0
-		var url = "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=1812aa1047a527c9537d5e2315c80ba0";
+		// another API key in case the other one gets blocked: 2915cce6a56b729abba54554662da808
+		var url = "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=2915cce6a56b729abba54554662da808";
 		$.ajax({
 			url: url,
 			dataType: "jsonp",
@@ -38,8 +40,6 @@ export default class Iphone extends Component {
 	}
 
 	
-	
-	
 
 	// the main render method for the iphone component
 	render() {
@@ -50,34 +50,34 @@ export default class Iphone extends Component {
 		if(category=="Rain"){
 			return (
 				<div class={ style.containerrainy }>
-					<HomeScreen/>
+					<HomeScreen category = 'rain'/>
 				</div>
 			);
 		}
 		else if(category=="Clear"){
 			return (
-				<div class={ style.containersunny }>
-					<HomeScreen/>
+				<div class={ style.containerrainy }>
+					<HomeScreen category = 'clear'/>
 				</div>
 			);
 		}
 		else{
 			return (
-				<div class={ style.containercloudy }>
-					<HomeScreen/>
+				<div class={ style.containerrainy }>
+					<HomeScreen category = 'cloudy'/>
 				</div>
 			
 			);
 		}
 		
 	};
-
+		
 	parseResponse = (parsed_json) => {
 		var location = parsed_json['name'];
 		var temp_c = parsed_json['main']['temp'];
 		var conditions = parsed_json['weather']['0']['description'];
 		var icon = parsed_json['weather']['0']['icon'];
-		var main = parsed_json['weather']['0']['main']
+		var main = parsed_json['weather']['0']['main'];
 		category=main;
 
 		// set states for fields so they could be rendered later on
@@ -87,9 +87,6 @@ export default class Iphone extends Component {
 			cond : conditions,
 			icon: icon,
 			main: main
-			//if main=== Clear -> sunny.png
-			//if main=== Clouds -> cloudy.png
-			//if main=== Rain -> rainy.png
 		});      
 	}
 }
