@@ -2,6 +2,7 @@ import { render, h ,Component, useState } from "preact";
 import HomeScreen from '../homeScreen';
 import Button from '../button';
 import style from './settings.less';
+import ToggleSwitch from './ToggleSwitch'; 
 
 
 export default class settingsScreen extends Component{
@@ -12,11 +13,15 @@ export default class settingsScreen extends Component{
 			screen: 'Set',
             showSearchBar: false,
             value:'',
+            isToggleOn: false,
+            unit: 'metric',
+
             
 		};
 
         this.handleChange = this.handleChange.bind(this);
         this.keyPress = this.keyPress.bind(this);
+        
 	}
        
     switchToHome = () =>{
@@ -42,12 +47,21 @@ export default class settingsScreen extends Component{
             this.switchToHome();
         }
     }
+
+    handleToggleChange = (isChecked) => {
+        const unit = isChecked ? 'imperial' : 'metric';
+        this.setState({ isToggleOn: isChecked, unit });
+    
+    };
   
     
     render(){
         if(this.state.screen == 'Set'){
             const { showSearchBar } = this.state;
+            const { isToggleOn } = this.state;
+            console.log("Unit",this.state.unit);
             return(
+                
                 <div class={style.settingsapp}>
                     <main>
                         <div>
@@ -87,8 +101,17 @@ export default class settingsScreen extends Component{
                             />
                             </div>
                             <div>
-                                <button class={style.settingsBtn}> Change the Unit</button>
+                                {/* <button class={style.settingsBtn}> Change the Unit</button> */}
+                                <div class={style.toggleSwitch}>
+                                    <ToggleSwitch
+                                    label="Toggle me"
+                                    onChange={this.handleToggleChange}
+                                    />
+                                </div>
+                                <p class={style.text}>The Unit is {isToggleOn ? 'Metric' : 'Imperial'}.</p>
+                
                             </div>
+
                         </div>
                         <div class={style.settingsContainer}>
                             <div class={style.settingsImage}>
@@ -101,19 +124,24 @@ export default class settingsScreen extends Component{
                                 <button class={style.settingsBtn}> Set notifications</button>
                             </div>
                         </div>
-                        <Button class='Back' clickFunction = {this.switchToHome}/>
+                            <button class={style.backBtn} onClick= {this.switchToHome}>
+                                Back
+                            </button>
                         </div>       
                     </main>     
                 </div>
+        
             );
+            
         }
         else if (this.state.screen == 'Home'){
             console.log("location after input:", this.state.value);
+
             return(
-                <HomeScreen location={this.state.value}/>
+                <HomeScreen location={this.state.value} unit={this.state.unit}/>
             );
         }
     }
     
 
-}
+} 

@@ -12,6 +12,7 @@ export default class homeScreen extends Component{
 		this.state = {
 			screen: 'Home',
             location: 'London' ,
+            unit:'imperial'
 		};
 	}
 
@@ -19,7 +20,11 @@ export default class homeScreen extends Component{
         this.setState({location: e.target.value});
         this.props.setLocation(e.target.value);
       }
-   
+      
+    handleUnitChange = (e) => {
+        this.setState({unit: e.target.value});
+        this.props.setUnit(e.target.value);
+    }
     printLoc() {
         console.log("Loc: ",this.state.location);
     }
@@ -48,6 +53,7 @@ export default class homeScreen extends Component{
                         <div class="mid">
                             <p class={ style.header }>Temperature</p>
                             <p>  {this.props.location}</p>
+                            <p>  {this.props.unit}</p>
                         </div>
                         <div class="bot">
                             <button class = 'mic'>mic</button>
