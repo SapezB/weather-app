@@ -1,47 +1,84 @@
+import { h, Component } from 'preact';
 
+class SpeechChatbot extends Component {
+  constructor(props) {
+    super(props);
 
-speaking =()=>{
-    const startBtn = document.querySelector("#speechBtn");
+    this.state = {
+      isListening: false,
+      transcript: '',
+      outputText: '',
+    };
 
+    this.recognition = new webkitSpeechRecognition();
+    this.recognition.lang = 'en-US';
+    this.recognition.continuous = true;
+    this.recognition.interimResults = true;
+    this.recognition.onresult = this.handleRecognitionResult.bind(this);
 
-    const recognition = new webkitSpeechRecognition();
-    recognition.continuous = true;
-    recognition.lang = "en-US";
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
+    this.chatbotUrl = 'https://api.openai.com/v1/engine/engines/davinci-codex/completions';
+    this.apiKey = 'YOUR_API_KEY';
+  }
 
-    const synth = window.speechSynthesis;
+  startListening() {
+    this.setState({ isListening: true });
+    this.recognition.start();
+  }
 
+  stopListening() {
+    this.setState({ isListening: false });
+    this.recognition.stop();
+  }
 
-    startBtn.addEventListener("click", () =>{
-        recognition.start();
-        utter.text = "Hello. i am your chatbot for today.... some basic questions you can ask are: what is the weather like today?";
-        synth.speak(utter);
-        
+  handleRecognitionResult(event) {
+    const transcript = Array.from(event.results)
+      .map(result => result[0])
+      .map(result => result.transcript)
+      .join('');
+
+    this.setState({ transcript }, () => {
+      if (this.state.transcript === 'bye') {
+        this.stopListening();
+      } else {
+        this.getChatbotResponse();
+      }
     });
+  }
 
-    let utter = new SpeechSynthesisUtterance("Hi");
-    utter.onend = () => {
-        recognition.start();
-    };
+  getChatbotResponse() {
+    fetch(this.chatbotUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.apiKey}`,
+      },
+      body: JSON.stringify({
+        prompt: `User: ${this.state.transcript}\nChatbot: `,
+        max_tokens: 50,
+        temperature: 0.7,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        const outputText = data.choices[0].text.trim();
+        this.speakOutputText(outputText);
+        this.setState({ outputText });
+      });
+  }
 
-    recognition.onresult = (e) =>{
-        const transcript = e.results[e.results.length -1][0].transcript.trim();
-        if (transcript === "hello"){
-            recognition.stop();
-            utter.text = "Hello";
-            synth.speak(utter);
-        }
+  speakOutputText(text) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterance);
+  }
 
-        else if (transcript ==="what is the weather like today"){
-            recognition.stop();
-            utter.text = "the weather today is relatively sunny - highest of 20 degrees";
-            synth.speak(utter);
-        }
-        else if (transcript ==="goodbye"){
-            recognition.stop();
-            utter.text = "goodbye. see you soon";
-            synth.speak(utter);
-        }
-    };
+  render() {
+    return (
+      <div>
+        <button onClick={() => this.startListening()}>Start Chatting</button>
+        {this.state.isListening && <p>Listening...</p>}
+        <p>User: {this.state.transcript}</p>
+        <p>Chatbot: {this.state.outputText}</p>
+      </div>
+    );
+  }
 }
