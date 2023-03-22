@@ -41,17 +41,6 @@ export default class Iphone extends Component {
 	}
 
 	
-	
-	
-	// checkBackground = () =>{
-	// 	console.log(this.state.weather)
-	// 	if (this.state.weather == 'Cloudy'){
-	// 		this.image = darkBlue
-	// 	}
-	// 	else if(this.state.weather == 'Sunny'){
-	// 		this.image = skyBlue
-	// 	}
-	// }
 
 	// the main render method for the iphone component
 	render() {
@@ -84,24 +73,6 @@ export default class Iphone extends Component {
 		
 	};
 		
-		// //sets image variable to be the bakcgbround of the current state
-		// if (this.state.weather == 'Cloudy'){
-		// 	this.image = darkBlue
-		// }
-		// else if(this.state.weather == 'Sunny'){
-		// 	this.image = skyBlue
-		// }
-
-
-		// // display all weather dataz
-		// return (
-		// 	<div class = {style.container} style={{ backgroundImage:`url(${this.image})` }}>
-		// 		<HomeScreen/>
-		// 	</div>
-			
-		// );
-	// }
-
 	parseResponse = (parsed_json) => {
 		var location = parsed_json['name'];
 		var temp_c = parsed_json['main']['temp'];
