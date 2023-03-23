@@ -42,7 +42,10 @@ npm init
 **3. Install the dependencies :**
 
 Before the app can be run you will need to install the react icon library. This can be done using:
-   npm install react-icons
+
+```sh
+npm install react-icons
+```
 
 ## Development Workflow
 
