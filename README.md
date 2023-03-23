@@ -45,6 +45,8 @@ npm install
 npm install react-icons
 ```
 
+**4. Replace the src file with the one downloaded from the submission**
+
 
 ## Development Workflow
 
