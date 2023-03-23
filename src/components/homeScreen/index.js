@@ -12,6 +12,58 @@ import { FaMicrophone } from 'react-icons/fa';
 import { GiSpeaker } from 'react-icons/gi';
 import { IoMdSettings } from 'react-icons/io';
 
+function speaking123 () {
+	console.log("why");
+
+	const recognition = new webkitSpeechRecognition();
+	recognition.continuous = true;
+	recognition.lang = "en-US";
+	recognition.interimResults = false;
+	recognition.maxAlternatives = 1;
+
+	const weatherTodayBot = new SpeechSynthesisUtterance("The weather today is very sunny with a highest of 20 degrees.");
+	const goodbyeBot = new SpeechSynthesisUtterance("Goodbye");
+	const hi = new SpeechSynthesisUtterance("hello");
+	const tomorrowWeatherBot = new SpeechSynthesisUtterance("it will be quite warm tomorrow with a high of 25 degrees");
+	const rainTomorrowBot= new SpeechSynthesisUtterance("not that i know of");
+	const another= new SpeechSynthesisUtterance("please press the button again to ask another question");
+
+
+	recognition.onresult = function(event){
+		const speechToTex = event.results[0][0].transcript;
+		console.log(speechToTex);
+		if (speechToTex.toLowerCase().includes("what is the weather like today")) {
+			window.speechSynthesis.speak(weatherTodayBot);
+			window.speechSynthesis.speak(another);
+		} 
+		else if (speechToTex.toLowerCase().includes("goodbye")) {
+			window.speechSynthesis.speak(goodbyeBot);
+			recognition.stop();
+
+		} 
+		else if (speechToTex.toLowerCase().includes("will it rain today")) {
+			window.speechSynthesis.speak(rainTomorrowBot);	
+			window.speechSynthesis.speak(another);
+
+		} 
+		else if (speechToTex.toLowerCase().includes("what is the weather like tomorrow")) {
+			window.speechSynthesis.speak(tomorrowWeatherBot);
+			window.speechSynthesis.speak(another);
+
+		} 
+		else if (speechToTex.toLowerCase().includes("hello")) {
+			window.speechSynthesis.speak(hi);
+			window.speechSynthesis.speak(another);
+		}
+
+	};
+	recognition.start();
+
+
+};
+
+
+
 export default class homeScreen extends Component {
 	constructor(props) {
 		super(props);
@@ -108,7 +160,7 @@ export default class homeScreen extends Component {
 									/>
 								) : null}
 								<div class={style_iphone.bottom}>
-									<button class="mic">
+									<button class="mic" onClick = {speaking123}>
 										<FaMicrophone />
 									</button>
 									<button class="speak">
