@@ -15,7 +15,7 @@ export default class DateScreen extends Component {
         };
     }
 
-    //api call to get the forecast
+    //api call to get the forecast details
     componentDidMount() {
         // Make API call to get hourly forecast data
         const apiUrl = 'https://api.open-meteo.com/v1/forecast?latitude=51.51&longitude=-0.13&hourly=temperature_2m,windspeed_120m&forecast_days=1';
