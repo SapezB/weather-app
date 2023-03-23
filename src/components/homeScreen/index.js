@@ -204,23 +204,7 @@ export default class homeScreen extends Component {
 								<GiSpeaker />
 							</button>
 						</div>
-						{/* <div class="bot"> */}
-						{/*<input*/}
-						{/*	class="try"*/}
-						{/*	type="text"*/}
-						{/*	value={ourText}*/}
-						{/*	placeholder="Enter Text"*/}
-						{/*	onInput={(e) => setOurText(e.target.value)}*/}
-						{/*/>*/}
-						{/* <button class="mic" onClick={this.speechHandler}>
-                                        mic
-                                    </button> */}
-						{/*/!* <button class="mic">mic</button> *!/*/}
-						{/*<button class="speak">speak</button>*/}
-						{/* <Speaker /> */}
-						{/* </div> */}
 					</div>
-					// </div>
 				);
 			} else if (this.state.main == 'Clear') {
 				return (
@@ -234,7 +218,6 @@ export default class homeScreen extends Component {
 								<IoMdSettings />
 							</button>
 						</div>
-						{/* <div class="mid"> */}
 						<div class={style.header}>
 							<div class={style.city}>{this.state.locate}</div>
 							{/* <div><img src="http://openweathermap.org/img/wn/${
@@ -264,22 +247,6 @@ export default class homeScreen extends Component {
 							<button class="style_iphone.button" onClick={this.speechHandler}>
 								<GiSpeaker />
 							</button>
-						</div>
-						{/* <div class="bot"> */}
-						{/*<input*/}
-						{/*	class="try"*/}
-						{/*	type="text"*/}
-						{/*	value={ourText}*/}
-						{/*	placeholder="Enter Text"*/}
-						{/*	onInput={(e) => setOurText(e.target.value)}*/}
-						{/*/>*/}
-						{/* <button class="mic" onClick={this.speechHandler}>
-                                        mic
-                                    </button> */}
-						{/*/!* <button class="mic">mic</button> *!/*/}
-						{/*<button class="speak">speak</button>*/}
-						{/* <Speaker /> */}
-						{/* </div> */}
 					</div>
 				);
 			} else {
@@ -325,23 +292,7 @@ export default class homeScreen extends Component {
 								<GiSpeaker />
 							</button>
 						</div>
-						{/* <div class="bot"> */}
-						{/*<input*/}
-						{/*	class="try"*/}
-						{/*	type="text"*/}
-						{/*	value={ourText}*/}
-						{/*	placeholder="Enter Text"*/}
-						{/*	onInput={(e) => setOurText(e.target.value)}*/}
-						{/*/>*/}
-						{/* <button class="mic" onClick={this.speechHandler}>
-                                        mic
-                                    </button> */}
-						{/*/!* <button class="mic">mic</button> *!/*/}
-						{/*<button class="speak">speak</button>*/}
-						{/* <Speaker /> */}
-						{/* </div> */}
 					</div>
-					// </div>
 				);
 			}
 		} else if (this.state.screen == 'Set') {
