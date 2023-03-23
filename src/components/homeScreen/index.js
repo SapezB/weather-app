@@ -2,7 +2,6 @@ import { h, render, Component, useState, useEffect } from 'preact';
 import SettingsScreen from '../settingsScreen';
 import Button from '../button';
 import style from './style';
-import LocScreen from '../locScreen';
 import DateScreen from '../dateScreen';
 import style_iphone from '../button/style_iphone';
 import $, { data } from 'jquery';
