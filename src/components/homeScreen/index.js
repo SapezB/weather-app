@@ -86,23 +86,9 @@ export default class homeScreen extends Component {
 						<button class="Date" onClick={this.switchToDate}>
 							{this.state.currentDate}
 						</button>
-						<button class="Location" onClick={this.switchToLoc}>
-							Loc
-						</button>
 						<button class="Settings" onClick={this.switchToSet}>
 							<IoMdSettings />
 						</button>
-						{/* <div class="top">
-							<button class="Date" onClick={this.switchToDate}>
-								20/2/23
-							</button>
-							<button class="Location" onClick={this.switchToLoc}>
-								Loc
-							</button>
-							<button class="Settings" onClick={this.switchToSet}>
-								Settings
-							</button>
-						</div> */}
 						<div class="mid">
 							<div class={style.header}>
 								<div class={style.city}>{this.state.locate}</div>
