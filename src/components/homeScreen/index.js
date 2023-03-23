@@ -365,6 +365,7 @@ export default class homeScreen extends Component {
 			main: main,
 			humid: humidity,
 			wind: windSpeed
+			buttonsDisplay: true;
 		});
 	};
 }
