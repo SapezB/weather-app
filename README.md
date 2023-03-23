@@ -3,7 +3,6 @@
 ## Set-Up Guide
 - [Installation](#installation)
 - [Development Workflow](#development-workflow)
-- [Extra Info](#extra-info)
 
 **0. Before doing any of this, if you're using your own laptop/desktop, make sure you've got the latest versions of node and npm installed (npm v: 9.6.2 & node v: 18.0.0) :**
 
