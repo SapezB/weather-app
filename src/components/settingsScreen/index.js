@@ -147,7 +147,7 @@ export default class settingsScreen extends Component{
                                 </div>
                             </div>
                             {/* back button to change to homescreen */}
-                                <button name={style.backBtn} onClick= {this.switchToHome}>
+                                <button class={style.backBtn} onClick= {this.switchToHome}>
                                     Back
                                 </button>
                         </div>       
