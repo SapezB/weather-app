@@ -67,7 +67,7 @@ export default class homeScreen extends Component {
 			location: 'London',
 			unit: 'metric',
 			main: 'Sunny',
-			buttonsDisplay: false
+			buttonsDisplay: false 
 		};
 		this.msg = new SpeechSynthesisUtterance(); //creates an object to turn text into speech
 	}
@@ -304,12 +304,15 @@ export default class homeScreen extends Component {
 						</div>
 						<div>
 							{this.state.buttonsDisplay ? (
-								<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+								<div class={style.conditions}>
+								<BsWind /> {this.state.wind}
+								</div>
 							) : null}
 							{this.state.buttonsDisplay ? (
-								<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
+								<div class={style.conditions}>
+								<WiHumidity /> {this.state.humid}
+								</div>
 							) : null}
-							
 						</div>
 						{/* <div class={style_iphone.bottom}>
 							<p>WindSpeed: {this.state.wind}</p>
@@ -364,8 +367,8 @@ export default class homeScreen extends Component {
 			icon: icon,
 			main: main,
 			humid: humidity,
-			wind: windSpeed
-			buttonsDisplay: true;
+			wind: windSpeed,
+			buttonsDisplay: true 
 		});
 	};
 }
