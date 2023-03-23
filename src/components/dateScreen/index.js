@@ -2,6 +2,8 @@ import { h, Component } from 'preact';
 import $ from 'jquery';
 import style from './date.less';
 
+
+//date screen with three hour forecast
 export default class DateScreen extends Component {
     constructor(props) {
         super(props);
@@ -13,6 +15,7 @@ export default class DateScreen extends Component {
         };
     }
 
+    //api call to get the forecast
     componentDidMount() {
         // Make API call to get hourly forecast data
         const apiUrl = 'https://api.open-meteo.com/v1/forecast?latitude=51.51&longitude=-0.13&hourly=temperature_2m,windspeed_120m&forecast_days=1';
@@ -29,6 +32,7 @@ export default class DateScreen extends Component {
         const hourRows = this.state.hour.map((hour, index) => {
             if (index % 3 === 0) {
                 return (
+                    // table rows
                     <tr>
                         <td>{hour}</td>
                         <td>{this.state.temperature[index]}°C</td>
@@ -59,6 +63,7 @@ export default class DateScreen extends Component {
           );
     }
 
+    // data fetched from the json file
     parseResponse = (parsed_json) => {
         const hourlyData = parsed_json['hourly'];
         const hour = hourlyData['time'].map(h => h.slice(11));;
