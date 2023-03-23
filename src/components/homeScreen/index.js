@@ -187,6 +187,8 @@ export default class homeScreen extends Component {
 							<div>
 								{this.state.buttonsDisplay ? (
 									<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+								) : null}
+								{this.state.buttonsDisplay ? (
 									<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
 								) : null}
 							</div>
@@ -237,6 +239,8 @@ export default class homeScreen extends Component {
 							<div>
 								{this.state.buttonsDisplay ? (
 									<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+								) : null}
+								{this.state.buttonsDisplay ? (
 									<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
 								) : null}
 							</div>
@@ -288,8 +292,11 @@ export default class homeScreen extends Component {
 							<div>
 								{this.state.buttonsDisplay ? (
 									<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+								) : null}
+								{this.state.buttonsDisplay ? (
 									<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
 								) : null}
+								
 							</div>
 						</div>
 						<div class={style.details} />
