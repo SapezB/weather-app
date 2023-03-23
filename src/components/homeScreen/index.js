@@ -248,6 +248,7 @@ export default class homeScreen extends Component {
 								<GiSpeaker />
 							</button>
 					</div>
+					</div>
 				);
 			} else {
 				return (
