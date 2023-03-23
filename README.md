@@ -1,4 +1,4 @@
-# Preact Boilerplate / Starter Kit for a Weather App
+# Instructions for the Weather App
 
 ## Set-Up Guide
 - [Installation](#installation)
