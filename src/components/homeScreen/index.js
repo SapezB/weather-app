@@ -163,11 +163,12 @@ export default class homeScreen extends Component {
 	render() {
 		//homescreen
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
+		//Checking which screen to display
 		if (this.state.screen == 'Home') {
+			//Checking which background to display: cloudy, sunny or rainy
 			if (this.state.main == 'Rain') {
 				return (
 					<div class={style.containerrainy}>
-						{/* {JSON.stringify(this.state)} */}
 						<div class={style_iphone.container}>
 							<button class={style_iphone.button} onClick={this.switchToDate}>
 								{this.state.currentDate}
@@ -176,14 +177,11 @@ export default class homeScreen extends Component {
 								<IoMdSettings />
 							</button>
 						</div>
-						{/* <div class="mid"> */}
 						<div class={style.header}>
 							<div class={style.city}>{this.state.locate}</div>
-							{/* <div><img src="http://openweathermap.org/img/wn/${
-                                    this.state.icon
-                            }@4x.png"/></div> */}
 							<div class={style.conditions}>{this.state.cond}</div>
 							<span class={tempStyles}>{this.state.temp}</span>
+							{/* Hiding humidity and wind icons and displaying only when the data was fetched */}
 							<div>
 								{this.state.buttonsDisplay ? (
 									<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
@@ -203,11 +201,6 @@ export default class homeScreen extends Component {
 								/>
 							) : null}
 						</div>
-						
-						{/* <div class={style_iphone.bottom}>
-							<p>WindSpeed: {this.state.wind}</p>
-							<p>Humidity: {this.state.humid} </p>
-						</div> */}
 						<div class={style_iphone.container}>
 							<button class="style_iphone.button" onClick={speaking123}>
 								<FaMicrophone />
@@ -221,7 +214,6 @@ export default class homeScreen extends Component {
 			} else if (this.state.main == 'Clear') {
 				return (
 					<div class={style.containersunny}>
-						{/* {JSON.stringify(this.state)} */}
 						<div class={style_iphone.container}>
 							<button class={style_iphone.button} onClick={this.switchToDate}>
 								{this.state.currentDate}
@@ -232,11 +224,9 @@ export default class homeScreen extends Component {
 						</div>
 						<div class={style.header}>
 							<div class={style.city}>{this.state.locate}</div>
-							{/* <div><img src="http://openweathermap.org/img/wn/${
-                                    this.state.icon
-                            }@4x.png"/></div> */}
 							<div class={style.conditions}>{this.state.cond}</div>
 							<span class={tempStyles}>{this.state.temp}</span>
+							{/* Hiding humidity and wind icons and displaying only when the data was fetched */}
 							<div>
 								{this.state.buttonsDisplay ? (
 									<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
@@ -256,14 +246,7 @@ export default class homeScreen extends Component {
 								/>
 							) : null}
 						</div>
-						
-						{/* <div class={style_iphone.bottom}>
-							<p>WindSpeed: {this.state.wind}</p>
-							<p>Humidity: {this.state.humid} </p>
-						</div> */}
-
 						<div class={style_iphone.container}>
-							{/* code for wind and humdity */}
 							<button class="style_iphone.button" onClick={speaking123}>
 								<FaMicrophone />
 							</button>
@@ -276,7 +259,6 @@ export default class homeScreen extends Component {
 			} else {
 				return (
 					<div class={style.containercloudy}>
-						{/* {JSON.stringify(this.state)} */}
 						<div class={style_iphone.container}>
 							<button class={style_iphone.button} onClick={this.switchToDate}>
 								{this.state.currentDate}
@@ -285,14 +267,11 @@ export default class homeScreen extends Component {
 								<IoMdSettings />
 							</button>
 						</div>
-						{/* <div class="mid"> */}
 						<div class={style.header}>
 							<div class={style.city}>{this.state.locate}</div>
-							{/* <div><img src="http://openweathermap.org/img/wn/${
-                                    this.state.icon
-                            }@4x.png"/></div> */}
 							<div class={style.conditions}>{this.state.cond}</div>
 							<span class={tempStyles}>{this.state.temp}</span>
+							{/* Hiding humidity and wind icons and displaying only when the data was fetched */}
 							<div>
 								{this.state.buttonsDisplay ? (
 									<div class={style.conditions}>
@@ -316,11 +295,6 @@ export default class homeScreen extends Component {
 								/>
 							) : null}
 						</div>
-						
-						{/* <div class={style_iphone.bottom}>
-							<p>WindSpeed: {this.state.wind}</p>
-							<p>Humidity: {this.state.humid} </p>
-						</div> */}
 						<div class={style_iphone.container}>
 							<button class="style_iphone.button" onClick={speaking123}>
 								<FaMicrophone />

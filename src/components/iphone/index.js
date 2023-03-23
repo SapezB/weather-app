@@ -11,7 +11,6 @@ import HomeScreen from '../homeScreen'
 
 var category
 export default class Iphone extends Component {
-//var Iphone = React.createClass({
 
 	// a constructor with initial set states
 	constructor(props){
@@ -39,38 +38,27 @@ export default class Iphone extends Component {
 		this.setState({ display: false });
 	}
 
-	
-
 	// the main render method for the iphone component
 	render() {
 		// check if temperature data is fetched, if so add the sign styling to the page
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
 		console.log(category)
-		// display all weather data
+		// display all weather data by calling right HomeScreen component category
 		if(category=="Rain"){
 			return (
-				// <div class={ style.containerrainy }>
-					<HomeScreen category = 'rain'/>
-				// {/* </div> */}
+				<HomeScreen category = 'rain'/>
 			);
 		}
 		else if(category=="Clear"){
 			return (
-				// <div class={ style.containersunny }>
-					<HomeScreen category = 'clear'/>
-				// {/* </div> */}
+				<HomeScreen category = 'clear'/>
 			);
 		}
 		else{
 			return (
-				// <div class={ style.containercloudy }>
-					<HomeScreen category = 'cloudy'/>
-				// {/* </div> */}
-			
+				<HomeScreen category = 'cloudy'/>
 			);
 		}
-
-		
 	};
 		
 	parseResponse = (parsed_json) => {
