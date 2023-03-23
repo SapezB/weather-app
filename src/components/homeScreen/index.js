@@ -212,7 +212,7 @@ export default class homeScreen extends Component {
 				);
 			} else if (this.state.main == 'Clear') {
 				return (
-					<div class={style.containercloudy}>
+					<div class={style.containersunny}>
 						{/* {JSON.stringify(this.state)} */}
 						<div class={style_iphone.container}>
 							<button class={style_iphone.button} onClick={this.switchToDate}>
@@ -258,7 +258,7 @@ export default class homeScreen extends Component {
 				);
 			} else {
 				return (
-					<div class={style.containersunny}>
+					<div class={style.containercloudy}>
 						{/* {JSON.stringify(this.state)} */}
 						<div class={style_iphone.container}>
 							<button class={style_iphone.button} onClick={this.switchToDate}>
