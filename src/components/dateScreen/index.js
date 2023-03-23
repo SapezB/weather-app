@@ -61,7 +61,7 @@ export default class DateScreen extends Component {
     
             return (
                 
-                <div>
+                <div class={style.dateapp}>
                   <h1>Hourly Forecast</h1>
                   <table>
                     <thead>
