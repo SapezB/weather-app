@@ -191,6 +191,10 @@ export default class homeScreen extends Component {
 							/>
 						) : null}
 					</div>
+                    <div class={style_iphone.bottom}>
+                        <p>WindSpeed: {this.state.wind}</p>
+                        <p>Humidity: {this.state.humid} </p>
+                    </div>
 					<div class={style_iphone.container}>
 							<button class="style_iphone.button" onClick={speaking123}>
 								<FaMicrophone />
@@ -244,6 +248,9 @@ export default class homeScreen extends Component {
 		var conditions = parsed_json['weather']['0']['description'];
 		var icon = parsed_json['weather']['0']['icon'];
 		var main = parsed_json['weather']['0']['main'];
+        var windSpeed = parsed_json['wind']['speed'];
+        var humidity = parsed_json['main']['humidity'];
+
 
 		// set states for fields so they could be rendered later on
 		this.setState({
@@ -251,10 +258,9 @@ export default class homeScreen extends Component {
 			temp: temp_c,
 			cond: conditions,
 			icon: icon,
-			main: main
-			//if main=== Clear -> sunny.png
-			//if main=== Clouds -> cloudy.png
-			//if main=== Rain -> rainy.png
+			main: main,
+            humid : humidity,
+            wind : windSpeed
 		});
 	};
 }
