@@ -109,11 +109,6 @@ export default class homeScreen extends Component {
                             <button class="Location" onClick={this.switchToLoc}>Loc</button>
                             <button class="Settings" onClick={this.switchToSet}><IoMdSettings /></button>
 						</div>
-                        <div class = 'top'>
-                            <button class = 'Date' onClick={this.switchToDate}>20/2/23</button>
-                            <button class="Location" onClick={this.switchToLoc}>Loc</button>
-                            <button class="Settings" onClick={this.switchToSet}>Settings</button>
-                        </div>
                         <div class="mid">
                                 <div class={ style.header }>
                                 <div class={ style.city }>{ this.state.locate }</div>
@@ -127,7 +122,7 @@ export default class homeScreen extends Component {
                             <div class= { style_iphone.container }> 
                                 { this.state.display ? <Button class={style_iphone.button } name = 'Fetch Weather Data' clickFunction={ this.fetchWeatherData }/ > : null }
                                 <div class={style_iphone.bottom}>
-                                    <button class = 'mic'><FaMicrophone /></button>
+                                    <button class = 'mic' onClick={speaking123}><FaMicrophone /></button>
                                     <button class ='speak'><GiSpeaker /></button>
                                 </div>
                             </div>
@@ -152,55 +147,8 @@ export default class homeScreen extends Component {
                 );
                 }
                 
-        else if (this.state.screen ==  'Set'){
-            return(
-                <div>
-                    <SettingsScreen/>
-                </div>
-            )
-        }
-        else if (this.state.screen == 'Loc') {
+    
 
-		if (this.state.screen == 'Home') {
-			return (
-				<div>
-					<div class="top">
-						<button class="Date" onClick={this.switchToDate}>
-							20/2/23
-						</button>
-						<button class="Location" onClick={this.switchToLoc}>
-							Loc
-						</button>
-						<button class="Settings" onClick={this.switchToSet}>
-							Settings
-						</button>
-					</div>
-					<div class="mid">
-						<p class={style.header}>Temperature</p>
-					</div>
-					<div class="bot">
-						{/*<input*/}
-						{/*	class="try"*/}
-						{/*	type="text"*/}
-						{/*	value={ourText}*/}
-						{/*	placeholder="Enter Text"*/}
-						{/*	onInput={(e) => setOurText(e.target.value)}*/}
-						{/*/>*/}
-						{/*<button class="mic" onClick={() => speechHandler(msg)}>*/}
-						{/*	mic*/}
-						{/*</button>*/}
-						{/*/!* <button class="mic">mic</button> *!/*/}
-						{/*<button class="speak">speak</button>*/}
-						<Speaker />
-					</div>
-					<div class="speechA">
-						<button class="speechBtn" onClick={speaking123} >speech-speech</button>
-							
-					</div>
-
-				</div>
-			);
-		} 
 		else if (this.state.screen == 'Set') {
 			return (
 				<div>
