@@ -21,7 +21,7 @@ Before the app can be run you will need to install the react icon library. This 
 npm install react-icons
 ```
 
-**2. Download the file into your working directory **
+**2. Download the file into your working directory**
 
 ## Development Workflow
 
