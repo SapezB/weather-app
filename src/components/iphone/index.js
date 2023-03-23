@@ -51,21 +51,21 @@ export default class Iphone extends Component {
 			return (
 				// <div class={ style.containerrainy }>
 					<HomeScreen category = 'rain'/>
-				{/* </div> */}
+				// {/* </div> */}
 			);
 		}
 		else if(category=="Clear"){
 			return (
 				// <div class={ style.containersunny }>
 					<HomeScreen category = 'clear'/>
-				{/* </div> */}
+				// {/* </div> */}
 			);
 		}
 		else{
 			return (
 				// <div class={ style.containercloudy }>
 					<HomeScreen category = 'cloudy'/>
-				{/* </div> */}
+				// {/* </div> */}
 			
 			);
 		}
