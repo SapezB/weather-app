@@ -73,6 +73,7 @@ export default class settingsScreen extends Component{
         if(this.state.screen == 'Set'){
             const { showSearchBar } = this.state;
             const { isToggleOn } = this.state;
+            const { alert } = window;
             //console.log("Unit",this.state.unit);
             return(
                 
@@ -142,7 +143,7 @@ export default class settingsScreen extends Component{
                                 />
                                 </div>
                                 <div>
-                                    <button class={style.settingsBtn}> Set notifications</button>
+                                    <button class={style.settingsBtn} onClick={() => alert("alert alert alert")}> Set notifications</button>
                                 </div>
                             </div>
                             {/* back button to change to homescreen */}
