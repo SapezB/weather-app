@@ -12,14 +12,14 @@ import { GiSpeaker } from 'react-icons/gi';
 import { IoMdSettings } from 'react-icons/io';
 
 function speaking123() {
-	console.log('why');
-
+	//function for our speaking chatbot that takes in users voice and returns an answer based on the input
 	const recognition = new webkitSpeechRecognition();
 	recognition.continuous = true;
 	recognition.lang = 'en-US';
 	recognition.interimResults = false;
 	recognition.maxAlternatives = 1;
 
+	//some answers for the possible inputs
 	const weatherTodayBot = new SpeechSynthesisUtterance("The weather today is cloudy and rainy with a highest of 15 degrees.");
 	const goodbyeBot = new SpeechSynthesisUtterance("Goodbye");
 	const hi = new SpeechSynthesisUtterance("hello");
@@ -27,6 +27,7 @@ function speaking123() {
 	const rainTomorrowBot= new SpeechSynthesisUtterance("i believe it will rain tomorrow");
 	const another= new SpeechSynthesisUtterance("please press the button again to ask another question");
 
+	//if and else, takes in users voice input and returns response based on input
 	recognition.onresult = function(event) {
 		const speechToTex = event.results[0][0].transcript;
 		console.log(speechToTex);
@@ -47,6 +48,7 @@ function speaking123() {
 			window.speechSynthesis.speak(another);
 		}
 	};
+	//start the microphone to allow user to speak
 	recognition.start();
 }
 
