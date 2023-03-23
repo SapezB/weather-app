@@ -21,11 +21,11 @@ function speaking123 () {
 	recognition.interimResults = false;
 	recognition.maxAlternatives = 1;
 
-	const weatherTodayBot = new SpeechSynthesisUtterance("The weather today is very sunny with a highest of 20 degrees.");
+	const weatherTodayBot = new SpeechSynthesisUtterance("The weather today is cloudy and rainy with a highest of 15 degrees.");
 	const goodbyeBot = new SpeechSynthesisUtterance("Goodbye");
 	const hi = new SpeechSynthesisUtterance("hello");
-	const tomorrowWeatherBot = new SpeechSynthesisUtterance("it will be quite warm tomorrow with a high of 25 degrees");
-	const rainTomorrowBot= new SpeechSynthesisUtterance("not that i know of");
+	const tomorrowWeatherBot = new SpeechSynthesisUtterance("tomorrow it will be cloudy and rainy with a high of 13 degrees");
+	const rainTomorrowBot= new SpeechSynthesisUtterance("i believe it will rain tomorrow");
 	const another= new SpeechSynthesisUtterance("please press the button again to ask another question");
 
 
