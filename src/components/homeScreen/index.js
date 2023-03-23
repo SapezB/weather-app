@@ -81,42 +81,43 @@ export default class homeScreen extends Component {
 		if (this.state.screen == 'Home') {
 			return (
 				<div>
-					{JSON.stringify(this.state)}
-					<div class={style.topBtn}>
-						<button class="Date" onClick={this.switchToDate}>
+					{/* {JSON.stringify(this.state)} */}
+					<div class={style_iphone.container}>
+						<button class={style_iphone.button} onClick={this.switchToDate}>
 							{this.state.currentDate}
 						</button>
-						<button class="Settings" onClick={this.switchToSet}>
+						<button class={style_iphone.button} onClick={this.switchToSet}>
 							<IoMdSettings />
 						</button>
-						<div class="mid">
-							<div class={style.header}>
-								<div class={style.city}>{this.state.locate}</div>
-								{/* <div><img src="http://openweathermap.org/img/wn/${
-                                        this.state.icon
-                                }@4x.png"/></div> */}
-								<div class={style.conditions}>{this.state.cond}</div>
-								<span class={tempStyles}>{this.state.temp}</span>
-							</div>
-							<div class={style.details} />
-							<div class={style_iphone.container}>
-								{this.state.display ? (
-									<Button
-										class={style_iphone.button}
-										name="Fetch Weather Data"
-										clickFunction={this.fetchWeatherData}
-									/>
-								) : null}
-								<div class={style_iphone.bottom}>
-									<button class="mic">
-										<FaMicrophone />
-									</button>
-									<button class="speak">
-										<GiSpeaker />
-									</button>
-								</div>
-							</div>
-							<div class="bot">
+					</div>
+						{/* <div class="mid"> */}
+					<div class={style.header}>
+						<div class={style.city}>{this.state.locate}</div>
+						{/* <div><img src="http://openweathermap.org/img/wn/${
+								this.state.icon
+						}@4x.png"/></div> */}
+						<div class={style.conditions}>{this.state.cond}</div>
+						<span class={tempStyles}>{this.state.temp}</span>
+					</div>
+					<div class={style.details} />
+					<div class={style_iphone.container}>
+						{this.state.display ? (
+							<Button
+								class={style_iphone.button}
+								name="Fetch Weather Data"
+								clickFunction={this.fetchWeatherData}
+							/>
+						) : null}
+					</div>
+					<div class={style_iphone.container}>
+							<button class="style_iphone.button">
+								<FaMicrophone />
+							</button>
+							<button class="style_iphone.button" onClick={this.speechHandler}>
+								<GiSpeaker />
+							</button>
+					</div>
+							{/* <div class="bot"> */}
 								{/*<input*/}
 								{/*	class="try"*/}
 								{/*	type="text"*/}
@@ -124,16 +125,15 @@ export default class homeScreen extends Component {
 								{/*	placeholder="Enter Text"*/}
 								{/*	onInput={(e) => setOurText(e.target.value)}*/}
 								{/*/>*/}
-								<button class="mic" onClick={this.speechHandler}>
+								{/* <button class="mic" onClick={this.speechHandler}>
 									mic
-								</button>
+								</button> */}
 								{/*/!* <button class="mic">mic</button> *!/*/}
 								{/*<button class="speak">speak</button>*/}
 								{/* <Speaker /> */}
-							</div>
-						</div>
-					</div>
+							{/* </div> */}
 				</div>
+				// </div>
 			);
 		} else if (this.state.screen == 'Set') {
 			return (
