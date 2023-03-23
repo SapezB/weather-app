@@ -109,7 +109,7 @@ export default class settingsScreen extends Component{
                                     onChange={this.handleToggleChange}
                                     />
                                 </div>
-                                <p class={style.text}>The Unit is {isToggleOn ? 'Metric' : 'Imperial'}.</p>
+                                <p class={style.text}>The Unit is {isToggleOn ? 'Imperial' : 'Metric'}.</p>
                 
                             </div>
 
@@ -136,7 +136,7 @@ export default class settingsScreen extends Component{
             
         }
         else if (this.state.screen == 'Home'){
-            console.log("location after input:", this.state.value);
+            console.log("unit after input:", this.state.unit);
 
             return(
                 <HomeScreen location={this.state.value} unit={this.state.unit} categroy = {this.state.category}/>

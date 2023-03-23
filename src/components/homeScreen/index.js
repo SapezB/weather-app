@@ -24,10 +24,20 @@ export default class homeScreen extends Component {
 			display: true,
 			currentDate: date,
             location: 'London' ,
-            unit:'imperial'
+            unit:'metric'
 		};
 		this.msg = new SpeechSynthesisUtterance();
 	}
+
+    handleLocationChange = (e) => {
+        this.setState({location: e.target.value});
+        this.props.setLocation(e.target.value);
+      }
+      
+    handleUnitChange = (e) => {
+        this.setState({unit: e.target.value});
+        this.props.setUnit(e.target.value);
+    }
 
 	// a call to fetch weather data via wunderground
 	fetchWeatherData = () => {
@@ -60,7 +70,28 @@ export default class homeScreen extends Component {
         this.setState({unit: e.target.value});
         this.props.setUnit(e.target.value);
     }
+
+    	// a call to fetch weather data via wunderground
+	fetchWeatherData = () => {
+        const location = this.props.location || 'London';
+        const unit = this.props.unit|| 'metric';
+		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
+		// my API key: 1812aa1047a527c9537d5e2315c80ba0
+		// another API key in case the other one gets blocked: 2915cce6a56b729abba54554662da808
+		var url = "http://api.openweathermap.org/data/2.5/weather?q="+location+"&units="+unit+"&APPID=2915cce6a56b729abba54554662da808";
+		$.ajax({
+			url: url,
+			dataType: "jsonp",
+			success : this.parseResponse,
+			error : function(req, err){ console.log('API call failed ' + err); }
+		})
+		// once the data grabbed, hide the button
+		this.setState({ display: false });
+	}
+
+   
     printLoc() {//changes to the lock screen
+
         console.log("Loc: ",this.state.location);
     }
 
