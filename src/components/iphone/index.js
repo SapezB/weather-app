@@ -56,14 +56,14 @@ export default class Iphone extends Component {
 		}
 		else if(category=="Clear"){
 			return (
-				<div class={ style.containerrainy }>
+				<div class={ style.containersunny }>
 					<HomeScreen category = 'clear'/>
 				</div>
 			);
 		}
 		else{
 			return (
-				<div class={ style.containerrainy }>
+				<div class={ style.containercloudy }>
 					<HomeScreen category = 'cloudy'/>
 				</div>
 			
