@@ -48,35 +48,36 @@ export default class homeScreen extends Component {
 		this.setState({ display: false });
 	}
 
-	switchToSet = () => {
+	switchToSet = () => { //function to switch to settingscreen
 		this.setState({ screen: 'Set' });
 	};
-    handleLocationChange = (e) => {
+    handleLocationChange = (e) => { //function to change location
         this.setState({location: e.target.value});
         this.props.setLocation(e.target.value);
       }
       
-    handleUnitChange = (e) => {
+    handleUnitChange = (e) => { //changes the unit
         this.setState({unit: e.target.value});
         this.props.setUnit(e.target.value);
     }
-    printLoc() {
+    printLoc() {//changes to the lock screen
         console.log("Loc: ",this.state.location);
     }
 
 
 
-	switchToDate = () => {
+	switchToDate = () => { //changes to the screen for 24 hour forcast
 		this.setState({ screen: 'Date' });
 	};
 
-	speechHandler = () => {
+	speechHandler = () => { //reads the temperature out loud
 		const message = 'The temperature is'.concat(this.state.temp);
 		this.msg.text = message;
 		window.speechSynthesis.speak(this.msg);
 	};
 
 	render() {
+        //homnescreen
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
 		if (this.state.screen == 'Home') {
 			return (
