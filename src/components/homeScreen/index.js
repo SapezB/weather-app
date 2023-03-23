@@ -10,6 +10,8 @@ import $, { data } from 'jquery';
 import { FaMicrophone } from 'react-icons/fa';
 import { GiSpeaker } from 'react-icons/gi';
 import { IoMdSettings } from 'react-icons/io';
+import { BsWind } from 'react-icons/bs';
+import { WiHumidity } from 'react-icons/wi';
 
 function speaking123() {
 	//function for our speaking chatbot that takes in users voice and returns an answer based on the input
@@ -181,6 +183,8 @@ export default class homeScreen extends Component {
                             }@4x.png"/></div> */}
 							<div class={style.conditions}>{this.state.cond}</div>
 							<span class={tempStyles}>{this.state.temp}</span>
+							<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+							<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
 						</div>
 						<div class={style.details} />
 						<div class={style_iphone.container}>
@@ -192,10 +196,10 @@ export default class homeScreen extends Component {
 								/>
 							) : null}
 						</div>
-						<div class={style_iphone.bottom}>
+						{/* <div class={style_iphone.bottom}>
 							<p>WindSpeed: {this.state.wind}</p>
 							<p>Humidity: {this.state.humid} </p>
-						</div>
+						</div> */}
 						<div class={style_iphone.container}>
 							<button class="style_iphone.button" onClick={speaking123}>
 								<FaMicrophone />
@@ -225,6 +229,8 @@ export default class homeScreen extends Component {
                             }@4x.png"/></div> */}
 							<div class={style.conditions}>{this.state.cond}</div>
 							<span class={tempStyles}>{this.state.temp}</span>
+							<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+							<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
 						</div>
 						<div class={style.details} />
 						<div class={style_iphone.container}>
@@ -236,10 +242,10 @@ export default class homeScreen extends Component {
 								/>
 							) : null}
 						</div>
-						<div class={style_iphone.bottom}>
+						{/* <div class={style_iphone.bottom}>
 							<p>WindSpeed: {this.state.wind}</p>
 							<p>Humidity: {this.state.humid} </p>
-						</div>
+						</div> */}
 						<div class={style_iphone.container}>
 							<button class="style_iphone.button" onClick={speaking123}>
 								<FaMicrophone />
@@ -270,6 +276,8 @@ export default class homeScreen extends Component {
                             }@4x.png"/></div> */}
 							<div class={style.conditions}>{this.state.cond}</div>
 							<span class={tempStyles}>{this.state.temp}</span>
+							<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+							<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
 						</div>
 						<div class={style.details} />
 						<div class={style_iphone.container}>
@@ -281,10 +289,10 @@ export default class homeScreen extends Component {
 								/>
 							) : null}
 						</div>
-						<div class={style_iphone.bottom}>
+						{/* <div class={style_iphone.bottom}>
 							<p>WindSpeed: {this.state.wind}</p>
 							<p>Humidity: {this.state.humid} </p>
-						</div>
+						</div> */}
 						<div class={style_iphone.container}>
 							<button class="style_iphone.button" onClick={speaking123}>
 								<FaMicrophone />
