@@ -34,6 +34,7 @@ export default class DateScreen extends Component {
                 return (
                     // table rows
                     <tr>
+                        {/* showing three - hour forecast */}
                         <td>{hour}</td>
                         <td>{this.state.temperature[index]}°C</td>
                         <td>{this.state.windSpeed[index]} km/h</td>
