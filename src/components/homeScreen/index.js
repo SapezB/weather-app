@@ -60,11 +60,11 @@ export default class homeScreen extends Component {
 
 		this.state = {
 			screen: 'Home',
-			category: this.props.category,
 			display: true,
 			currentDate: date,
 			location: 'London',
-			unit: 'metric'
+			unit: 'metric',
+			main: 'Sunny'
 		};
 		this.msg = new SpeechSynthesisUtterance(); //creates an object to turn text into speech
 	}
@@ -161,46 +161,189 @@ export default class homeScreen extends Component {
 		//homnescreen
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
 		if (this.state.screen == 'Home') {
-			return (
-				<div>
-					{/* {JSON.stringify(this.state)} */}
-					<div class={style_iphone.container}>
-						<button class={style_iphone.button} onClick={this.switchToDate}>
-							{this.state.currentDate}
-						</button>
-						<button class={style_iphone.button} onClick={this.switchToSet}>
-							<IoMdSettings />
-						</button>
+			if (this.state.main == 'Rain') {
+				return (
+					<div class={style.containerrainy}>
+						{/* {JSON.stringify(this.state)} */}
+						<div class={style_iphone.container}>
+							<button class={style_iphone.button} onClick={this.switchToDate}>
+								{this.state.currentDate}
+							</button>
+							<button class={style_iphone.button} onClick={this.switchToSet}>
+								<IoMdSettings />
+							</button>
+						</div>
+						{/* <div class="mid"> */}
+						<div class={style.header}>
+							<div class={style.city}>{this.state.locate}</div>
+							{/* <div><img src="http://openweathermap.org/img/wn/${
+                                    this.state.icon
+                            }@4x.png"/></div> */}
+							<div class={style.conditions}>{this.state.cond}</div>
+							<span class={tempStyles}>{this.state.temp}</span>
+						</div>
+						<div class={style.details} />
+						<div class={style_iphone.container}>
+							{this.state.display ? (
+								<Button
+									class={style_iphone.button}
+									name="Fetch Weather Data"
+									clickFunction={this.fetchWeatherData}
+								/>
+							) : null}
+						</div>
+						<div class={style_iphone.bottom}>
+							<p>WindSpeed: {this.state.wind}</p>
+							<p>Humidity: {this.state.humid} </p>
+						</div>
+						<div class={style_iphone.container}>
+							<button class="style_iphone.button" onClick={speaking123}>
+								<FaMicrophone />
+							</button>
+							<button class="style_iphone.button" onClick={this.speechHandler}>
+								<GiSpeaker />
+							</button>
+						</div>
+						{/* <div class="bot"> */}
+						{/*<input*/}
+						{/*	class="try"*/}
+						{/*	type="text"*/}
+						{/*	value={ourText}*/}
+						{/*	placeholder="Enter Text"*/}
+						{/*	onInput={(e) => setOurText(e.target.value)}*/}
+						{/*/>*/}
+						{/* <button class="mic" onClick={this.speechHandler}>
+                                        mic
+                                    </button> */}
+						{/*/!* <button class="mic">mic</button> *!/*/}
+						{/*<button class="speak">speak</button>*/}
+						{/* <Speaker /> */}
+						{/* </div> */}
 					</div>
-					{/* <div class="mid"> */}
-					<div class={style.header}>
-						<div class={style.city}>{this.state.locate}</div>
-						{/* <div><img src="http://openweathermap.org/img/wn/${
-								this.state.icon
-						}@4x.png"/></div> */}
-						<div class={style.conditions}>{this.state.cond}</div>
-						<span class={tempStyles}>{this.state.temp}</span>
+					// </div>
+				);
+			} else if (this.state.main == 'Clear') {
+				return (
+					<div class={style.containercloudy}>
+						{/* {JSON.stringify(this.state)} */}
+						<div class={style_iphone.container}>
+							<button class={style_iphone.button} onClick={this.switchToDate}>
+								{this.state.currentDate}
+							</button>
+							<button class={style_iphone.button} onClick={this.switchToSet}>
+								<IoMdSettings />
+							</button>
+						</div>
+						{/* <div class="mid"> */}
+						<div class={style.header}>
+							<div class={style.city}>{this.state.locate}</div>
+							{/* <div><img src="http://openweathermap.org/img/wn/${
+                                    this.state.icon
+                            }@4x.png"/></div> */}
+							<div class={style.conditions}>{this.state.cond}</div>
+							<span class={tempStyles}>{this.state.temp}</span>
+						</div>
+						<div class={style.details} />
+						<div class={style_iphone.container}>
+							{this.state.display ? (
+								<Button
+									class={style_iphone.button}
+									name="Fetch Weather Data"
+									clickFunction={this.fetchWeatherData}
+								/>
+							) : null}
+						</div>
+						<div class={style_iphone.bottom}>
+							<p>WindSpeed: {this.state.wind}</p>
+							<p>Humidity: {this.state.humid} </p>
+						</div>
+						<div class={style_iphone.container}>
+							<button class="style_iphone.button" onClick={speaking123}>
+								<FaMicrophone />
+							</button>
+							<button class="style_iphone.button" onClick={this.speechHandler}>
+								<GiSpeaker />
+							</button>
+						</div>
+						{/* <div class="bot"> */}
+						{/*<input*/}
+						{/*	class="try"*/}
+						{/*	type="text"*/}
+						{/*	value={ourText}*/}
+						{/*	placeholder="Enter Text"*/}
+						{/*	onInput={(e) => setOurText(e.target.value)}*/}
+						{/*/>*/}
+						{/* <button class="mic" onClick={this.speechHandler}>
+                                        mic
+                                    </button> */}
+						{/*/!* <button class="mic">mic</button> *!/*/}
+						{/*<button class="speak">speak</button>*/}
+						{/* <Speaker /> */}
+						{/* </div> */}
 					</div>
-					<div class={style.details} />
-					<div class={style_iphone.container}>
-						{this.state.display ? (
-							<Button
-								class={style_iphone.button}
-								name="Fetch Weather Data"
-								clickFunction={this.fetchWeatherData}
-							/>
-						) : null}
+				);
+			} else {
+				return (
+					<div class={style.containersunny}>
+						{/* {JSON.stringify(this.state)} */}
+						<div class={style_iphone.container}>
+							<button class={style_iphone.button} onClick={this.switchToDate}>
+								{this.state.currentDate}
+							</button>
+							<button class={style_iphone.button} onClick={this.switchToSet}>
+								<IoMdSettings />
+							</button>
+						</div>
+						{/* <div class="mid"> */}
+						<div class={style.header}>
+							<div class={style.city}>{this.state.locate}</div>
+							{/* <div><img src="http://openweathermap.org/img/wn/${
+                                    this.state.icon
+                            }@4x.png"/></div> */}
+							<div class={style.conditions}>{this.state.cond}</div>
+							<span class={tempStyles}>{this.state.temp}</span>
+						</div>
+						<div class={style.details} />
+						<div class={style_iphone.container}>
+							{this.state.display ? (
+								<Button
+									class={style_iphone.button}
+									name="Fetch Weather Data"
+									clickFunction={this.fetchWeatherData}
+								/>
+							) : null}
+						</div>
+						<div class={style_iphone.bottom}>
+							<p>WindSpeed: {this.state.wind}</p>
+							<p>Humidity: {this.state.humid} </p>
+						</div>
+						<div class={style_iphone.container}>
+							<button class="style_iphone.button" onClick={speaking123}>
+								<FaMicrophone />
+							</button>
+							<button class="style_iphone.button" onClick={this.speechHandler}>
+								<GiSpeaker />
+							</button>
+						</div>
+						{/* <div class="bot"> */}
+						{/*<input*/}
+						{/*	class="try"*/}
+						{/*	type="text"*/}
+						{/*	value={ourText}*/}
+						{/*	placeholder="Enter Text"*/}
+						{/*	onInput={(e) => setOurText(e.target.value)}*/}
+						{/*/>*/}
+						{/* <button class="mic" onClick={this.speechHandler}>
+                                        mic
+                                    </button> */}
+						{/*/!* <button class="mic">mic</button> *!/*/}
+						{/*<button class="speak">speak</button>*/}
+						{/* <Speaker /> */}
+						{/* </div> */}
 					</div>
-					<div class={style_iphone.container}>
-						<button class="style_iphone.button" onClick={speaking123}>
-							<FaMicrophone />
-						</button>
-						<button class="style_iphone.button" onClick={this.speechHandler}>
-							<GiSpeaker />
-						</button>
-					</div>
-				</div>
-			);
+					// </div>
+				);
+			}
 		} else if (this.state.screen == 'Set') {
 			return (
 				<div>
@@ -228,6 +371,8 @@ export default class homeScreen extends Component {
 		var conditions = parsed_json['weather']['0']['description'];
 		var icon = parsed_json['weather']['0']['icon'];
 		var main = parsed_json['weather']['0']['main'];
+		var windSpeed = parsed_json['wind']['speed'];
+		var humidity = parsed_json['main']['humidity'];
 
 		// set states for fields so they could be rendered later on
 		this.setState({
@@ -235,10 +380,9 @@ export default class homeScreen extends Component {
 			temp: temp_c,
 			cond: conditions,
 			icon: icon,
-			main: main
-			//if main=== Clear -> sunny.png
-			//if main=== Clouds -> cloudy.png
-			//if main=== Rain -> rainy.png
+			main: main,
+			humid: humidity,
+			wind: windSpeed
 		});
 	};
 }
