@@ -22,7 +22,9 @@ export default class homeScreen extends Component {
 			screen: 'Home',
 			category: this.props.category,
 			display: true,
-			currentDate: date
+			currentDate: date,
+            location: 'London' ,
+            unit:'imperial'
 		};
 		this.msg = new SpeechSynthesisUtterance();
 	}
@@ -44,15 +46,25 @@ export default class homeScreen extends Component {
 		});
 		// once the data grabbed, hide the button
 		this.setState({ display: false });
-	};
+	}
 
 	switchToSet = () => {
 		this.setState({ screen: 'Set' });
 	};
+    handleLocationChange = (e) => {
+        this.setState({location: e.target.value});
+        this.props.setLocation(e.target.value);
+      }
+      
+    handleUnitChange = (e) => {
+        this.setState({unit: e.target.value});
+        this.props.setUnit(e.target.value);
+    }
+    printLoc() {
+        console.log("Loc: ",this.state.location);
+    }
 
-	switchToLoc = () => {
-		this.setState({ screen: 'Loc' });
-	};
+
 
 	switchToDate = () => {
 		this.setState({ screen: 'Date' });
