@@ -184,14 +184,6 @@ export default class homeScreen extends Component {
                             }@4x.png"/></div> */}
 							<div class={style.conditions}>{this.state.cond}</div>
 							<span class={tempStyles}>{this.state.temp}</span>
-							<div>
-								{this.state.buttonsDisplay ? (
-									<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
-								) : null}
-								{this.state.buttonsDisplay ? (
-									<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
-								) : null}
-							</div>
 						</div>
 						<div class={style.details} />
 						<div class={style_iphone.container}>
@@ -201,6 +193,14 @@ export default class homeScreen extends Component {
 									name="Fetch Weather Data"
 									clickFunction={this.fetchWeatherData}
 								/>
+							) : null}
+						</div>
+						<div>
+							{this.state.buttonsDisplay ? (
+								<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+							) : null}
+							{this.state.buttonsDisplay ? (
+								<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
 							) : null}
 						</div>
 						{/* <div class={style_iphone.bottom}>
@@ -236,14 +236,7 @@ export default class homeScreen extends Component {
                             }@4x.png"/></div> */}
 							<div class={style.conditions}>{this.state.cond}</div>
 							<span class={tempStyles}>{this.state.temp}</span>
-							<div>
-								{this.state.buttonsDisplay ? (
-									<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
-								) : null}
-								{this.state.buttonsDisplay ? (
-									<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
-								) : null}
-							</div>
+							
 						</div>
 						<div class={style.details} />
 						<div class={style_iphone.container}>
@@ -253,6 +246,14 @@ export default class homeScreen extends Component {
 									name="Fetch Weather Data"
 									clickFunction={this.fetchWeatherData}
 								/>
+							) : null}
+						</div>
+						<div>
+							{this.state.buttonsDisplay ? (
+								<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+							) : null}
+							{this.state.buttonsDisplay ? (
+								<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
 							) : null}
 						</div>
 						{/* <div class={style_iphone.bottom}>
@@ -289,15 +290,7 @@ export default class homeScreen extends Component {
                             }@4x.png"/></div> */}
 							<div class={style.conditions}>{this.state.cond}</div>
 							<span class={tempStyles}>{this.state.temp}</span>
-							<div>
-								{this.state.buttonsDisplay ? (
-									<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
-								) : null}
-								{this.state.buttonsDisplay ? (
-									<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
-								) : null}
-								
-							</div>
+							
 						</div>
 						<div class={style.details} />
 						<div class={style_iphone.container}>
@@ -308,6 +301,15 @@ export default class homeScreen extends Component {
 									clickFunction={this.fetchWeatherData}
 								/>
 							) : null}
+						</div>
+						<div>
+							{this.state.buttonsDisplay ? (
+								<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+							) : null}
+							{this.state.buttonsDisplay ? (
+								<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
+							) : null}
+							
 						</div>
 						{/* <div class={style_iphone.bottom}>
 							<p>WindSpeed: {this.state.wind}</p>
