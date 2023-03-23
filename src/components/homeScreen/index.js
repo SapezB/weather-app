@@ -66,7 +66,8 @@ export default class homeScreen extends Component {
 			currentDate: date,
 			location: 'London',
 			unit: 'metric',
-			main: 'Sunny'
+			main: 'Sunny',
+			buttonsDisplay: false
 		};
 		this.msg = new SpeechSynthesisUtterance(); //creates an object to turn text into speech
 	}
@@ -97,7 +98,7 @@ export default class homeScreen extends Component {
 			}
 		});
 		// once the data grabbed, hide the button
-		this.setState({ display: false });
+		this.setState({ display: false, buttonsDisplay: true });
 	};
 
 	switchToSet = () => {
@@ -183,8 +184,12 @@ export default class homeScreen extends Component {
                             }@4x.png"/></div> */}
 							<div class={style.conditions}>{this.state.cond}</div>
 							<span class={tempStyles}>{this.state.temp}</span>
-							<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
-							<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
+							<div>
+								{this.state.buttonsDisplay ? (
+									<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+									<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
+								) : null}
+							</div>
 						</div>
 						<div class={style.details} />
 						<div class={style_iphone.container}>
@@ -229,8 +234,12 @@ export default class homeScreen extends Component {
                             }@4x.png"/></div> */}
 							<div class={style.conditions}>{this.state.cond}</div>
 							<span class={tempStyles}>{this.state.temp}</span>
-							<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
-							<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
+							<div>
+								{this.state.buttonsDisplay ? (
+									<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+									<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
+								) : null}
+							</div>
 						</div>
 						<div class={style.details} />
 						<div class={style_iphone.container}>
@@ -276,8 +285,12 @@ export default class homeScreen extends Component {
                             }@4x.png"/></div> */}
 							<div class={style.conditions}>{this.state.cond}</div>
 							<span class={tempStyles}>{this.state.temp}</span>
-							<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
-							<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
+							<div>
+								{this.state.buttonsDisplay ? (
+									<div class={style.conditions}>< BsWind /> {this.state.wind}</div>
+									<div class={style.conditions}>< WiHumidity /> {this.state.humid}</div>
+								) : null}
+							</div>
 						</div>
 						<div class={style.details} />
 						<div class={style_iphone.container}>
