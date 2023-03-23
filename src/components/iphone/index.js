@@ -47,11 +47,29 @@ export default class Iphone extends Component {
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
 		console.log(category)
 		// display all weather data
-		return (
-			<div class={ style.containerrainy }>
-				<HomeScreen category = 'rain'/>
-			</div>
-		);
+		if(category=="Rain"){
+			return (
+				<div class={ style.containerrainy }>
+					<HomeScreen category = 'rain'/>
+				</div>
+			);
+		}
+		else if(category=="Clear"){
+			return (
+				<div class={ style.containersunny }>
+					<HomeScreen category = 'clear'/>
+				</div>
+			);
+		}
+		else{
+			return (
+				<div class={ style.containercloudy }>
+					<HomeScreen category = 'cloudy'/>
+				</div>
+			
+			);
+		}
+
 		
 	};
 		
