@@ -1,4 +1,4 @@
-// import preact 
+// import preact
 import { h, render, Component } from 'preact';
 // import stylesheets for ipad & button
 import style from './style';
@@ -18,18 +18,18 @@ export default class Ipad extends Component {
 		this.state.temp = "";
 		// button display state
 		this.setState({ display: true });
-    }
+	}
 
 	// a call to fetch weather data via wunderground
 	fetchWeatherData = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
-		var url = "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=cf17e23b1d108b29a4d738d2084baf5";
+		const url = "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=cf17e23b1d108b29a4d738d2084baf5";
 		$.ajax({
-			url: url,
+			url,
 			dataType: "jsonp",
 			success : this.parseResponse,
-			error : function(req, err){ console.log('API call failed ' + err); }
-		})
+			error(req, err){ console.log('API call failed ' + err); }
+		});
 		// once the data grabbed, hide the button
 		this.setState({ display: false });
 	}
@@ -49,18 +49,21 @@ export default class Ipad extends Component {
 					<span class={ style.temperature }>{ this.state.temp }</span>
 				</div>
 				<div class={ style.details }></div>
-				<div class={ style_ipad.container }>
-					{ this.state.display ? <Button class={ style_ipad.button } clickFunction={ this.fetchWeatherData }/ > : null }
+				<div class={style_ipad.container}>
+					{this.state.display ? (
+						<Button class={style_ipad.button} clickFunction={this.fetchWeatherData} />
+					) : null}
 				</div>
+
 			</div>
 		);
 	}
 
 	parseResponse = (parsed_json) => {
-		var city = parsed_json['name'];
-		var country = parsed_json['sys']['country'];
-		var temp_c = parsed_json['main']['temp'];
-		var conditions = parsed_json['weather']['0']['description'];
+		const city = parsed_json['name'];
+		const country = parsed_json['sys']['country'];
+		const temp_c = parsed_json['main']['temp'];
+		const conditions = parsed_json['weather']['0']['description'];
 
 		// set the states for fields so they could be rendered later on
 		this.setState({
@@ -68,6 +71,6 @@ export default class Ipad extends Component {
 			currentCountry: country,
 			temp: temp_c,
 			cond : conditions
-		});      
+		});
 	}
 }
