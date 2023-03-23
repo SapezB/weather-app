@@ -76,7 +76,7 @@ export default class DateScreen extends Component {
                     </tbody>
                   </table>
                   {/* back button to change to homescreen */}
-                  <button  onClick= {this.switchToHome}>  Back</button>
+                  <button class={style.backBtn} onClick= {this.switchToHome}>  Back</button>
                 </div>
               );
 
