@@ -161,7 +161,7 @@ export default class homeScreen extends Component {
 	};
 
 	render() {
-		//homnescreen
+		//homescreen
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
 		if (this.state.screen == 'Home') {
 			if (this.state.main == 'Rain') {
@@ -260,7 +260,9 @@ export default class homeScreen extends Component {
 							<p>WindSpeed: {this.state.wind}</p>
 							<p>Humidity: {this.state.humid} </p>
 						</div> */}
+
 						<div class={style_iphone.container}>
+							{/* code for wind and humdity */}
 							<button class="style_iphone.button" onClick={speaking123}>
 								<FaMicrophone />
 							</button>
