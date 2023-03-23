@@ -1,6 +1,8 @@
 import { h, Component } from 'preact';
 import $ from 'jquery';
 import style from './date.less';
+import Button from '../button';
+import HomeScreen from '../homeScreen';
 
 
 //date screen with three hour forecast
@@ -8,12 +10,15 @@ export default class DateScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            screen: 'Date',
             hour: [],
             temperature: [],
             windSpeed: [],
             display: true
         };
     }
+
+
 
     //api call to get the forecast details
     componentDidMount() {
@@ -28,40 +33,60 @@ export default class DateScreen extends Component {
         });
     }
 
-    render() {
-        const hourRows = this.state.hour.map((hour, index) => {
-            if (index % 3 === 0) {
-                return (
-                    // table rows
-                    <tr>
-                        {/* showing three - hour forecast */}
-                        <td>{hour}</td>
-                        <td>{this.state.temperature[index]}°C</td>
-                        <td>{this.state.windSpeed[index]} km/h</td>
-                    </tr>
-                );
-            } else {
-                return null;
-            }
-        });
+     //function for switching the screen to homescreen
+     switchToHome = () =>{
 
-        return (
-            <div>
-              <h1>Hourly Forecast</h1>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Time</th>
-                    <th>Temperature</th>
-                    <th>Wind Speed</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {hourRows}
-                </tbody>
-              </table>
-            </div>
-          );
+        this.setState({ screen : 'Home'})
+        
+    }
+
+    render() {
+        if(this.state.screen == 'Date')
+        {
+            const hourRows = this.state.hour.map((hour, index) => {
+                if (index % 3 === 0) {
+                    return (
+                        // table rows
+                        <tr>
+                            {/* showing three - hour forecast */}
+                            <td>{hour}</td>
+                            <td>{this.state.temperature[index]}°C</td>
+                            <td>{this.state.windSpeed[index]} km/h</td>
+                        </tr>
+                    );
+                } else {
+                    return null;
+                }
+            });
+    
+            return (
+                
+                <div>
+                  <h1>Hourly Forecast</h1>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Time</th>
+                        <th>Temperature</th>
+                        <th>Wind Speed</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {hourRows}
+                    </tbody>
+                  </table>
+                  {/* back button to change to homescreen */}
+                  <button  onClick= {this.switchToHome}>  Back</button>
+                </div>
+              );
+
+        }
+        else if (this.state.screen == 'Home'){
+            return(
+                // if the setState is home it will change to  homescreen with the state values
+                <HomeScreen />
+            );
+        }
     }
 
     // data fetched from the json file
