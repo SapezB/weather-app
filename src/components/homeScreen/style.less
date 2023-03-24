@@ -1,13 +1,15 @@
 @import '~style/helpers';
 
+//sets size to iphone screen
 .body{
 	width:414px;
 	height:736px;
 }
-.containerrainy { 
+
+
+.containerrainy, .containersunny, .containercloudy { 
 	display: flex;
 	flex-direction: column;
-	background-image: url('../../assets/backgrounds/rainy.png');
 	color: #fff;
 	width: 414px;
 	height: 736px;
@@ -16,29 +18,17 @@
 	margin: 0 ;
 }
 
+.containerrainy{
+	background-image: url('../../assets/backgrounds/rainy.png');
+}
+
 .containersunny{
-	display: flex;
-	flex-direction: column;
 	background-image: url('../../assets/backgrounds/sunny.png');
-	color: #fff;
-	width: 414px;
-	height: 736px;
-	text-align: center;
-	padding-top: 40px;
-	margin: 0 ;
 }
 
 
 .containercloudy{
-	display: flex;
-	flex-direction: column;
 	background-image: url('../../assets/backgrounds/cloudy.png');
-	color: #fff;
-	width: 414px;
-	height: 736px;
-	text-align: center;
-	padding-top: 40px;
-	margin: 0;
 }
 .header {
 	display: flex;
