@@ -1,15 +1,15 @@
 import { h, Component } from 'preact';
 import style from './settings.less';
 
-class ToggleSwitch extends Component {
+class ToggleSwitch extends Component { //Toggle for the imperial/metric system
   constructor(props) {
     super(props);
     this.state = {
-      isChecked: false,
+      isChecked: false,//default
     };
   }
 
-  handleToggleChange = () => {
+  handleToggleChange = () => { //function to change the state of the toggle from one to another when a change is made in settings
     const { onChange } = this.props;
     const { isChecked } = this.state;
     this.setState({ isChecked: !isChecked });
@@ -27,7 +27,7 @@ class ToggleSwitch extends Component {
           <input
             type="checkbox"
             checked={isChecked}
-            onChange={this.handleToggleChange}
+            onChange={this.handleToggleChange}//detects change and call the function to handle the change
           />
           <span className={style.slider}></span>
         </label>
