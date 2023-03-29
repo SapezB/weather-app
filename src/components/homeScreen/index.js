@@ -159,6 +159,10 @@ export default class homeScreen extends Component {
 		window.speechSynthesis.speak(this.msg);
 	};
 
+	componentDidMount(){
+		this.fetchWeatherData()
+	}
+
 	render() {
 		//homescreen
 		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
